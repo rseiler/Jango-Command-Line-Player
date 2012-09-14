@@ -4,10 +4,8 @@ It's a very simple way to play the music form a http://jango.com station. It req
 
 ## Usage
 
-* java -jar jango.jar stations
-** lists the top stations
-* java -jar jango.jar /path/to/mplayer stationID
-** plays the songs from the station
+* java -jar jango.jar stations -- `lists the top stations`
+* java -jar jango.jar /path/to/mplayer stationID -- `plays the songs from the station`
 
 
 While the songs are playing you have 3 options
