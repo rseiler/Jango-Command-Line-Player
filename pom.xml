@@ -28,7 +28,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>vb.VideoBrowser</mainClass>
+							<mainClass>jango.JangoCLPlayer</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
