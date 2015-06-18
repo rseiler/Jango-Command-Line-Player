@@ -17,7 +17,6 @@ import java.util.regex.Pattern;
 public class JangoCLPlayer {
 
     private static Pattern mp3urlPattern = Pattern.compile("url\":\"(.+?)\"");
-    private static Pattern idPattern = Pattern.compile("(\\d+)\\.");
     private static Pattern songPattern = Pattern.compile("song\":\"(.*?)\"");
     private static Pattern artistPattern = Pattern.compile("artist\":\"(.*?)\"");
     private static Pattern stationIdPattern = Pattern.compile("/stations/(\\d+)/tunein.*?class=\"sp_tgname\">([\\w\\d /]+)</span");
@@ -51,7 +50,7 @@ public class JangoCLPlayer {
         Runtime.getRuntime().addShutdownHook(new Thread() {
             @Override
             public void run() {
-                killMplayer();
+                killPlayer();
             }
         });
 
@@ -73,12 +72,9 @@ public class JangoCLPlayer {
             public void run() {
                 while (running) {
                     try {
-                        String[] arr = getIdAndMp3Url(stationId);
-
-                        String id = arr[0];
-                        String mp3url = arr[1];
+                        String mp3url = getMp3Url(stationId);
                         mplayerProcess = new ProcessBuilder(pathToMplayer, "-really-quiet", mp3url).start();
-                        songInfo(id);
+                        songInfo();
                         mplayerProcess.waitFor();
                     } catch (IOException | InterruptedException e) {
                         e.printStackTrace();
@@ -102,25 +98,25 @@ public class JangoCLPlayer {
                     break;
                 case "next":
                 case "n":
-                    killMplayer();
+                    killPlayer();
                     break;
                 case "exit":
                 case "quit":
                 case "q":
                 case "e":
                     running = false;
-                    killMplayer();
+                    killPlayer();
                     break;
 
                 default:
-                    killMplayer();
+                    killPlayer();
                     break;
             }
         }
         scanner.close();
     }
 
-    private static void killMplayer() {
+    private static void killPlayer() {
         if (mplayerProcess != null) {
             OutputStream os = mplayerProcess.getOutputStream();
             try {
@@ -149,14 +145,14 @@ public class JangoCLPlayer {
         }
     }
 
-    private static void songInfo(final String id) {
+    private static void songInfo() {
         Thread songInfo = new Thread() {
 
             @Override
             public void run() {
                 try {
                     String song = null, artist = null;
-                    String html = getHtml("http://www.jango.com/players/usd?ver=4&next=1&cb=" + id);
+                    String html = getHtml("http://www.jango.com/players/usd?ver=10");
                     Matcher songMatcher = songPattern.matcher(html);
                     if (songMatcher.find()) {
                         song = songMatcher.group(1);
@@ -184,26 +180,22 @@ public class JangoCLPlayer {
         songInfo.start();
     }
 
-    private static String[] getIdAndMp3Url(String stationId) {
-        String mp3url = null, id = null;
+    private static String getMp3Url(String stationId) {
+        String mp3url = null;
         String html = getHtml("http://www.jango.com/streams/" + stationId);
         Matcher mp3urlMatcher = mp3urlPattern.matcher(html);
         if (mp3urlMatcher.find()) {
             mp3url = mp3urlMatcher.group(1);
-
-            Matcher idMatcher = idPattern.matcher(mp3url);
-            if (idMatcher.find()) {
-                id = idMatcher.group(1);
-            }
         }
 
-        return new String[]{id, mp3url};
+        return mp3url;
     }
 
     private static String getHtml(String url) {
         StringBuilder stringBuilder = new StringBuilder();
         try {
             HttpGet method = new HttpGet(url);
+            method.addHeader("X-Requested-With", "XMLHttpRequest");
             HttpResponse httpResponse = client.execute(method);
 
             Scanner scanner = new Scanner(new InputStreamReader(httpResponse.getEntity().getContent(), "UTF-8"));
