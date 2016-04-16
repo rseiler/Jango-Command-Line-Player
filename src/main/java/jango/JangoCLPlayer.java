@@ -37,20 +37,22 @@ public class JangoCLPlayer {
             return;
         }
 
-        final String pathToMplayer = args[0];
-        final String stationId = args[1];
-
         addShutdownHook();
-        disableErrorStream();
-        prepareConnection(stationId);
-        playSongs(pathToMplayer, stationId);
+        prepareConnection(args[1]);
+        playSongs(args[0], args[1]);
         processCommands();
     }
 
+    /**
+     * Prints the usage command.
+     */
     private static void usage() {
         System.out.println("usage: [path/to/mplayer stationId] [stations]");
     }
 
+    /**
+     * Waits and handles input from the console.
+     */
     private static void processCommands() throws IOException {
         Scanner scanner = new Scanner(System.in);
         while (RUNNING && scanner.hasNextLine()) {
@@ -81,6 +83,12 @@ public class JangoCLPlayer {
         scanner.close();
     }
 
+    /**
+     * Start to play the songs from the station.
+     *
+     * @param pathToMplayer the path to the mplayer
+     * @param stationId     the id of the station
+     */
     private static void playSongs(final String pathToMplayer, final String stationId) {
         Thread player = new Thread() {
             @Override
@@ -104,11 +112,18 @@ public class JangoCLPlayer {
                     }
                 }
             }
+
+            private SongData getSongData(String stationId) {
+                return GSON.fromJson(grabData("http://www.jango.com/streams/info?stid=" + stationId), SongData.class);
+            }
         };
         player.setDaemon(true);
         player.start();
     }
 
+    /**
+     * Quites the mplayer.
+     */
     private static void killPlayer() {
         if (MPLAYER_PROCESS != null) {
             OutputStream os = MPLAYER_PROCESS.getOutputStream();
@@ -119,9 +134,11 @@ public class JangoCLPlayer {
                 MPLAYER_PROCESS.destroy();
             }
         }
-        MPLAYER_PROCESS = null;
     }
 
+    /**
+     * Prints the top stations from the main page.
+     */
     private static void printTopStations() {
         try {
             String html = grabData("http://www.jango.com");
@@ -134,10 +151,12 @@ public class JangoCLPlayer {
         }
     }
 
-    private static SongData getSongData(String stationId) {
-        return GSON.fromJson(grabData("http://www.jango.com/streams/info?stid=" + stationId), SongData.class);
-    }
-
+    /**
+     * Fetches the data from the given url.
+     *
+     * @param url the url which will be opened
+     * @return the content
+     */
     private static String grabData(String url) {
         StringBuilder stringBuilder = new StringBuilder();
         try {
@@ -158,9 +177,15 @@ public class JangoCLPlayer {
         return stringBuilder.toString();
     }
 
+    /**
+     * Opens the main page to get the necessary cookies.
+     */
+    private static void prepareConnection(String stationId) throws IOException {
+        EntityUtils.consume(HTTP_CLIENT.execute(new HttpGet("http://www.jango.com/stations/" + stationId + "/tunein")).getEntity());
+    }
 
     /**
-     * kills the player if the program is shutdown.
+     * Kills the player if the program is shutdown.
      */
     private static void addShutdownHook() {
         Runtime.getRuntime().addShutdownHook(new Thread() {
@@ -172,39 +197,28 @@ public class JangoCLPlayer {
     }
 
     /**
-     * opens the main page to get the necessary cookies.
+     * Holds the data of a song.
      */
-    private static void prepareConnection(String stationId) throws IOException {
-        EntityUtils.consume(HTTP_CLIENT.execute(new HttpGet("http://www.jango.com/stations/" + stationId + "/tunein")).getEntity());
-    }
-
-    /**
-     * "disables" ALL error messages
-     * i didn't found any other way to disable the
-     * org.apache.http.client.protocol.ResponseProcessCookies warning. if you know another way, please tell me.
-     */
-    private static void disableErrorStream() {
-        System.setErr(new PrintStream(new OutputStream() {
-            @Override
-            public void write(int b) throws IOException {
-            }
-        }));
-    }
-
     private static class SongData {
         private String url;
         private String artist;
         private String song;
 
-        public String getUrl() {
+        private SongData(String url, String artist, String song) {
+            this.url = url;
+            this.artist = artist;
+            this.song = song;
+        }
+
+        String getUrl() {
             return url;
         }
 
-        public String getArtist() {
+        String getArtist() {
             return artist;
         }
 
-        public String getSong() {
+        String getSong() {
             return song;
         }
     }
