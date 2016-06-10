@@ -1,0 +1,6 @@
+<h1>Stations</h1>
+#foreach($station in $stations)
+    <div>
+        <a href="/station/$station.Id">$station.Name</a>
+    </div>
+#end
