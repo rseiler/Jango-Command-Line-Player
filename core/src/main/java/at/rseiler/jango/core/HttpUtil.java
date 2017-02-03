@@ -6,12 +6,15 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
-public class RequestService {
+public final class HttpUtil {
 
-    private final HttpClient httpClient = HttpClientBuilder.create().build();
+    private static final Logger LOGGER = LoggerFactory.getLogger(HttpUtil.class);
+    private final static HttpClient httpClient = HttpClientBuilder.create().build();
 
     /**
      * Fetches the data from the given url.
@@ -19,7 +22,7 @@ public class RequestService {
      * @param url the url which will be opened
      * @return the content
      */
-    public String grabData(String url) {
+    public static String grabData(String url) {
         String result = "";
 
         try {
@@ -29,7 +32,7 @@ public class RequestService {
             result = IOUtils.toString(httpResponse.getEntity().getContent(), "UTF-8").replaceAll("\\n", "");
             EntityUtils.consume(httpResponse.getEntity());
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Failed to grab data", e);
         }
 
         return result;
@@ -38,8 +41,10 @@ public class RequestService {
     /**
      * Opens the main page to get the necessary cookies.
      */
-    public void prepareConnection(String uri) throws IOException {
+    public static void prepareConnection(String uri) throws IOException {
         EntityUtils.consume(httpClient.execute(new HttpGet(uri)).getEntity());
-//        EntityUtils.consume(httpClient.execute(new HttpGet("http://www.jango.com/stations/" + stationId + "/tunein")).getEntity());
+    }
+
+    private HttpUtil() {
     }
 }

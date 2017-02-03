@@ -1,9 +1,7 @@
 package at.rseiler.jango.sever.http;
 
-import at.rseiler.jango.core.RequestService;
 import at.rseiler.jango.core.station.StationService;
 import at.rseiler.jango.core.station.StationServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -24,13 +22,7 @@ public class JangoPlayerServer {
     }
 
     @Bean
-    RequestService requestService() {
-        return new RequestService();
-    }
-
-    @Bean
-    @Autowired
-    StationService stationService(RequestService requestService) {
-        return new StationServiceImpl(requestService);
+    StationService stationService() {
+        return new StationServiceImpl();
     }
 }

@@ -1,6 +1,6 @@
 package at.rseiler.jango.core.station;
 
-import at.rseiler.jango.core.RequestService;
+import at.rseiler.jango.core.HttpUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,10 +11,7 @@ public class StationServiceImpl implements StationService {
 
     private static final Pattern STATION_ID_PATTERN = Pattern.compile("/stations/(\\d+)/tunein.*?class=\"sp_tgname\">([\\w\\d /]+)</span");
 
-    private final RequestService requestService;
-
-    public StationServiceImpl(RequestService requestService) {
-        this.requestService = requestService;
+    public StationServiceImpl() {
     }
 
     /**
@@ -23,16 +20,11 @@ public class StationServiceImpl implements StationService {
     @Override
     public List<Station> topStations() {
         List<Station> stations = new ArrayList<>();
+        String html = HttpUtil.grabData("http://www.jango.com");
+        Matcher stationMatcher = STATION_ID_PATTERN.matcher(html);
 
-        try {
-            String html = requestService.grabData("http://www.jango.com");
-            Matcher stationMatcher = STATION_ID_PATTERN.matcher(html);
-
-            while (stationMatcher.find()) {
-                stations.add(new Station(stationMatcher.group(1).trim(), stationMatcher.group(2).trim()));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        while (stationMatcher.find()) {
+            stations.add(new Station(stationMatcher.group(1).trim(), stationMatcher.group(2).trim()));
         }
 
         return stations;

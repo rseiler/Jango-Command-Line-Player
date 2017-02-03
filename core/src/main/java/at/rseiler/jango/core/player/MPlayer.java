@@ -1,21 +1,19 @@
 package at.rseiler.jango.core.player;
 
 import at.rseiler.jango.core.song.SongData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.CompletableFuture;
 
-public class Player {
+public class MPlayer {
 
-    private final String pathToMPlayer;
+    private static final Logger LOGGER = LoggerFactory.getLogger(MPlayer.class);
     private Process mPlayerProcess;
     private CompletableFuture<SongData> future;
-
-    public Player(String pathToMPlayer) {
-        this.pathToMPlayer = pathToMPlayer;
-    }
 
     public CompletableFuture<SongData> play(SongData songData) {
         return play(songData, 0);
@@ -34,10 +32,10 @@ public class Player {
             double songTimeInSec = songTime / 1000;
 
             try {
-                mPlayerProcess = new ProcessBuilder(pathToMPlayer, "-really-quiet", songData.getUrl(), "-ss", Double.toString(songTimeInSec)).start();
+                mPlayerProcess = new ProcessBuilder("mplayer", "-really-quiet", songData.getUrl(), "-ss", Double.toString(songTimeInSec)).start();
                 mPlayerProcess.waitFor();
             } catch (IOException | InterruptedException e) {
-                e.printStackTrace();
+                LOGGER.error("Failed to create mplayer process", e);
             }
 
             return songData;
@@ -53,7 +51,7 @@ public class Player {
                 os.write("p".getBytes(StandardCharsets.UTF_8));
                 os.flush();
             } catch (IOException e) {
-                e.printStackTrace();
+                LOGGER.error("Failed to pause mplayer", e);
             }
         }
     }
@@ -67,13 +65,13 @@ public class Player {
                 os.flush();
                 os.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                LOGGER.error("Failed to quite mplayer. Trying to destroy process.", e);
                 mPlayerProcess.destroy();
             }
         }
     }
 
-    private boolean isAlive() {
+    public boolean isAlive() {
         return mPlayerProcess != null && mPlayerProcess.isAlive();
     }
 }

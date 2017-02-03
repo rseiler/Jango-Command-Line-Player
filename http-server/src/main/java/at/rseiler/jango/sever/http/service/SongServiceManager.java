@@ -1,9 +1,11 @@
 package at.rseiler.jango.sever.http.service;
 
-import at.rseiler.jango.core.RequestService;
 import at.rseiler.jango.core.song.*;
 import at.rseiler.jango.sever.http.event.NextSongEvent;
 import at.rseiler.jango.sever.http.event.PlayEvent;
+import at.rseiler.jango.sever.http.event.StationEvent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.event.EventListener;
@@ -16,31 +18,35 @@ import java.util.List;
 @Service
 public class SongServiceManager {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(SongServiceManager.class);
     private static final List<Class<? extends NextSongServiceDecorator>> SONG_SERVICE_DECORATORS = Arrays.asList(
             NextSongServiceWithConsoleLogging.class,
             NextSongServiceWithStoring.class
     );
-    private final RequestService requestService;
     private final ApplicationEventPublisher publisher;
     private NextSongService nextSongService;
 
     @Autowired
-    public SongServiceManager(RequestService requestService, ApplicationEventPublisher publisher) {
-        this.requestService = requestService;
+    public SongServiceManager(ApplicationEventPublisher publisher) {
         this.publisher = publisher;
     }
 
-    @EventListener(NextSongEvent.class)
-    public void handleNextSong() {
-        if (nextSongService != null) {
-            publisher.publishEvent(new PlayEvent(nextSongService.getNextSong()));
+    @EventListener(StationEvent.class)
+    public void handleStationEvent(StationEvent stationEvent) {
+        try {
+            nextSongService = new SongServiceBuilder(new NextSongServiceImpl(stationEvent.getStationId()))
+                    .withDecorators(SONG_SERVICE_DECORATORS)
+                    .build();
+        } catch (IOException e) {
+            LOGGER.error("Failed to create NextSongService", e);
         }
     }
 
-    public void setStationId(String stationId) throws IOException {
-        nextSongService = new SongServiceBuilder(new NextSongServiceImpl(requestService, stationId))
-                .withDecorators(SONG_SERVICE_DECORATORS)
-                .build();
+    @EventListener(NextSongEvent.class)
+    public void handleNextSongEvent() {
+        if (nextSongService != null) {
+            publisher.publishEvent(new PlayEvent(nextSongService.getNextSong()));
+        }
     }
 
 }

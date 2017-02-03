@@ -1,79 +1,45 @@
 package jango;
 
-import at.rseiler.jango.core.RequestService;
-import at.rseiler.jango.core.player.Player;
-import at.rseiler.jango.core.song.*;
 import at.rseiler.jango.core.station.StationServiceImpl;
+import jango.player.LocalPlayer;
+import jango.player.Player;
+import jango.player.SlavePlayer;
 
 import java.io.IOException;
-import java.net.Socket;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
-import java.util.concurrent.CancellationException;
 
-public class JangoCLPlayer {
+public final class JangoCLPlayer {
 
     private static final int DEFAULT_PORT = 9888;
-    private static Player PLAYER;
-    private static NextSongService nextSongService;
 
     public static void main(String[] args) throws IOException {
-        RequestService requestService = new RequestService();
-
-        if (args.length == 1) {
+        if (args.length > 0) {
             if (args[0].equals("stations")) {
-                new StationServiceImpl(requestService)
-                        .topStations()
-                        .forEach(station -> System.out.println(station.getId() + " " + station.getName()));
-            } else {
-                usage();
+                printStations();
+                return;
             }
-            return;
-        }
 
-        if (args.length < 2) {
-            usage();
-            return;
-        }
+            Player player;
 
-        if ("slave".equals(args[0])) {
-            String[] address = args[1].split(":");
-            String host = address[0];
-            int port = address.length == 2 ? Integer.parseInt(address[1]) : DEFAULT_PORT;
-            TcpClient tcpClient = new TcpClient(new Socket(host, port));
-            tcpClient.start();
+            if ("slave".equals(args[0])) {
+                String[] address = args[1].split(":");
+                String host = address[0];
+                int port = address.length == 2 ? Integer.parseInt(address[1]) : DEFAULT_PORT;
+                SlavePlayer slavePlayer = new SlavePlayer(host, port);
+                slavePlayer.init();
+                player = slavePlayer;
+            } else {
+                LocalPlayer localPlayer = new LocalPlayer();
+                localPlayer.setStationId(args[0]);
+                player = localPlayer;
+            }
+
+            addShutdownHook(player);
+            processCommands(player);
         } else {
-            addShutdownHook();
-
-            PLAYER = new Player(args[0]);
-            List<Class<? extends NextSongServiceDecorator>> decorators = Arrays.asList(
-                    NextSongServiceWithConsoleLogging.class,
-                    NextSongServiceWithStoring.class
-            );
-            nextSongService = new SongServiceBuilder(new NextSongServiceImpl(requestService, args[1]))
-                    .withDecorators(decorators)
-                    .build();
-            playNextSong();
-
-            processCommands();
-        }
-
-        Scanner scanner = new Scanner(System.in);
-        scanner.hasNextLine();
-    }
-
-    private static void playNextSong() {
-        PLAYER.play(nextSongService.getNextSong())
-                .whenComplete(JangoCLPlayer::whenComplete);
-    }
-
-    private static void whenComplete(SongData songData, Throwable throwable) {
-        if (!(throwable instanceof CancellationException)) {
-            playNextSong();
+            usage();
         }
     }
-
 
     /**
      * Prints the usage command.
@@ -82,32 +48,44 @@ public class JangoCLPlayer {
         System.out.println("usage: [path/to/mplayer stationId] [stations]");
     }
 
+    private static void printStations() {
+        new StationServiceImpl()
+                .topStations()
+                .forEach(station -> System.out.println(station.getId() + " " + station.getName()));
+    }
+
+
     /**
      * Waits and handles input from the console.
+     *
+     * @param player the player on which the actions are called
      */
-    private static void processCommands() throws IOException {
+    private static void processCommands(Player player) throws IOException {
         Scanner scanner = new Scanner(System.in);
 
         inputLoop:
         while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            switch (line) {
+            String[] commands = scanner.nextLine().split("\\s+");
+
+            switch (commands[0]) {
                 case "pause":
                 case "p":
-                    PLAYER.pause();
+                    player.onPause();
                     break;
                 case "next":
                 case "n":
-                    PLAYER.stop();
+                    player.onNext();
                     break;
+                case "station":
+                case "s":
+                    player.onStation(commands[1]);
                 case "exit":
                 case "quit":
                 case "q":
                 case "e":
-                    PLAYER.stop();
                     break inputLoop;
                 default:
-                    PLAYER.stop();
+                    player.stop();
                     break;
             }
         }
@@ -115,16 +93,13 @@ public class JangoCLPlayer {
         scanner.close();
     }
 
-
     /**
      * Kills the player if the program is shutdown.
      */
-    private static void addShutdownHook() {
-        Runtime.getRuntime().addShutdownHook(new Thread() {
-            @Override
-            public void run() {
-                PLAYER.stop();
-            }
-        });
+    private static void addShutdownHook(Player player) {
+        Runtime.getRuntime().addShutdownHook(new Thread(player::stop));
+    }
+
+    private JangoCLPlayer() {
     }
 }

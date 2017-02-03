@@ -1,6 +1,6 @@
 package at.rseiler.jango.sever.http.service;
 
-import at.rseiler.jango.core.player.Player;
+import at.rseiler.jango.core.player.MPlayer;
 import at.rseiler.jango.sever.http.event.AllClientsDisconnected;
 import at.rseiler.jango.sever.http.event.ClientConnectedEvent;
 import at.rseiler.jango.sever.http.event.PauseEvent;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class PlayerManager {
 
-    private final Player player = new Player("mplayer");
+    private final MPlayer MPlayer = new MPlayer();
     private final SongService songService;
     private boolean enabled = true;
 
@@ -24,13 +24,13 @@ public class PlayerManager {
     @EventListener
     public void onPlayEvent(PlayEvent event) {
         if (enabled) {
-            player.play(event.getSongData());
+            MPlayer.play(event.getSongData());
         }
     }
 
     @EventListener(PauseEvent.class)
     public void onPauseEvent() {
-        player.pause();
+        MPlayer.pause();
     }
 
     @EventListener(ClientConnectedEvent.class)
@@ -45,14 +45,14 @@ public class PlayerManager {
 
     public void disable() {
         enabled = false;
-        player.stop();
+        MPlayer.stop();
     }
 
     public void enable() {
         enabled = true;
 
         if (songService.isPlaying()) {
-            player.play(songService.getSongData(), songService.getSongTime());
+            MPlayer.play(songService.getSongData(), songService.getSongTime());
         }
     }
 }

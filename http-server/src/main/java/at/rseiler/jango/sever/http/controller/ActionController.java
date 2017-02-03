@@ -2,9 +2,8 @@ package at.rseiler.jango.sever.http.controller;
 
 import at.rseiler.jango.sever.http.event.NextSongEvent;
 import at.rseiler.jango.sever.http.event.PauseEvent;
+import at.rseiler.jango.sever.http.event.StationEvent;
 import at.rseiler.jango.sever.http.service.PlayerManager;
-import at.rseiler.jango.sever.http.service.SongService;
-import at.rseiler.jango.sever.http.service.SongServiceManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.core.io.FileSystemResource;
@@ -19,26 +18,19 @@ import java.io.IOException;
 @RestController
 public class ActionController {
 
-    private final SongServiceManager songServiceManager;
     private final PlayerManager playerManager;
-    private final SongService songService;
     private final ApplicationEventPublisher publisher;
 
     @Autowired
-    public ActionController(SongServiceManager songServiceManager, PlayerManager playerManager, SongService songService, ApplicationEventPublisher publisher) {
-        this.songServiceManager = songServiceManager;
+    public ActionController(PlayerManager playerManager, ApplicationEventPublisher publisher) {
         this.playerManager = playerManager;
-        this.songService = songService;
         this.publisher = publisher;
     }
 
     @RequestMapping("/station/{stationId:\\d+}")
     public void station(@PathVariable String stationId) throws IOException {
-        songServiceManager.setStationId(stationId);
-
-        if (!songService.isPlaying()) {
-            publisher.publishEvent(new NextSongEvent());
-        }
+        publisher.publishEvent(new StationEvent(stationId));
+        publisher.publishEvent(new NextSongEvent());
     }
 
     @RequestMapping("/output/disable/{id}")

@@ -12,4 +12,11 @@ public class PlayEvent {
     public SongData getSongData() {
         return songData;
     }
+
+    @Override
+    public String toString() {
+        return "PlayEvent{" +
+                "songData=" + songData +
+                '}';
+    }
 }

@@ -1,9 +1,6 @@
 package at.rseiler.jango.sever.http.tcp;
 
-import at.rseiler.jango.sever.http.event.AllClientsDisconnected;
-import at.rseiler.jango.sever.http.event.ClientConnectedEvent;
-import at.rseiler.jango.sever.http.event.PauseEvent;
-import at.rseiler.jango.sever.http.event.PlayEvent;
+import at.rseiler.jango.sever.http.event.*;
 import at.rseiler.jango.sever.http.service.SongService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,7 +39,7 @@ public class TcpServer {
     }
 
     @PostConstruct
-    public void init() throws IOException {
+    public synchronized void init() throws IOException {
         Thread thread = new ConnectionListener(tcpPort);
         thread.start();
     }
@@ -62,7 +59,7 @@ public class TcpServer {
         onEvent(TcpConnectionHandler::ping);
     }
 
-    private void onEvent(HandlerCallable handlerCallable) {
+    private synchronized void onEvent(HandlerCallable handlerCallable) {
         for (Iterator<TcpConnectionHandler> iterator = handlers.iterator(); iterator.hasNext(); ) {
             TcpConnectionHandler handler = iterator.next();
 
@@ -75,11 +72,34 @@ public class TcpServer {
         }
     }
 
-    private void removeHandler(TcpConnectionHandler handler) {
+    private synchronized void removeHandler(TcpConnectionHandler handler) {
         handler.close();
 
         if (handlers.isEmpty()) {
             publisher.publishEvent(new AllClientsDisconnected());
+        }
+    }
+
+    @Scheduled(fixedRate = 100)
+    private synchronized void processCommands() {
+        for (TcpConnectionHandler handler : handlers) {
+            handler.readLine().ifPresent(line -> {
+                String[] command = line.split("<>");
+
+                switch (command[0]) {
+                    case "pause":
+                        publisher.publishEvent(new PauseEvent());
+                        break;
+                    case "next":
+                        publisher.publishEvent(new NextSongEvent());
+                        break;
+                    case "station":
+                        publisher.publishEvent(new StationEvent(command[1]));
+                        publisher.publishEvent(new NextSongEvent());
+                        break;
+
+                }
+            });
         }
     }
 
@@ -106,7 +126,7 @@ public class TcpServer {
             }
         }
 
-        private void newTcpConnection(TcpConnectionHandler handler) {
+        private synchronized void newTcpConnection(TcpConnectionHandler handler) {
             publisher.publishEvent(new ClientConnectedEvent());
             handlers.add(handler);
 

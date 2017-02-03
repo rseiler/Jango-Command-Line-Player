@@ -88,7 +88,7 @@ public class SongService {
         }, info.getRemainingTime());
     }
 
-    private static class Info {
+    private static final class Info {
         private Long startTime;
         private long duration = 0;
         private final long length;
