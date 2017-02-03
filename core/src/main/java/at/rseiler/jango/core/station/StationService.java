@@ -1,4 +1,4 @@
-package at.rseiler.jango.core;
+package at.rseiler.jango.core.station;
 
 import java.util.List;
 

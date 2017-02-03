@@ -1,12 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1.0, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
 <head>
     <title>Jango Player</title>
+    <style>
+        h2 {
+            margin-bottom: 5px;
+        }
+
+        .station-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .station-container > div {
+            padding: 0 15px;
+        }
+
+        .station-container > div:first-child {
+            padding-left: 0;
+        }
+
+        #pause-info {
+            font-size: smaller;
+        }
+
+        #song-info {
+            font-weight: bold;
+            font-size: xx-large;
+        }
+    </style>
 </head>
 
 <body>
 
-$screen_content
+    $screen_content
 
 </body>
 </html>

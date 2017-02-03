@@ -1,4 +1,4 @@
-package at.rseiler.jango.core;
+package at.rseiler.jango.core.song;
 
 import org.apache.commons.io.FileUtils;
 
@@ -6,17 +6,16 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-public class SongServiceWithStoring extends SongServiceDecorator {
+public class NextSongServiceWithStoring extends NextSongServiceDecorator {
 
-    public SongServiceWithStoring(SongService songService) {
-        super(songService);
+    public NextSongServiceWithStoring(NextSongService nextSongService) {
+        super(nextSongService);
     }
 
     @Override
-    public SongData nextSong() {
-        SongData songData = songService.nextSong();
-        String name = songData.getArtist() + " - " + songData.getSong();
-        File file = new File("songs/" + name + ".m4p");
+    public SongData getNextSong() {
+        SongData songData = getNextSongService().getNextSong();
+        File file = new File("songs/" + songData.getFileName());
 
         if (!file.exists()) {
             try {

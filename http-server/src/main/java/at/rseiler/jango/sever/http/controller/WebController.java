@@ -1,48 +1,53 @@
 package at.rseiler.jango.sever.http.controller;
 
-import at.rseiler.jango.core.StationService;
-import at.rseiler.jango.sever.http.service.PlayerManager;
+import at.rseiler.jango.core.station.Station;
+import at.rseiler.jango.core.station.StationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.File;
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class WebController {
 
     private final StationService stationService;
-    private final PlayerManager playerManager;
 
     @Autowired
-    public WebController(@Qualifier("cachedStationService") StationService stationService, PlayerManager playerManager) {
+    public WebController(@Qualifier("cachedStationService") StationService stationService) {
         this.stationService = stationService;
-        this.playerManager = playerManager;
     }
 
     @RequestMapping("/")
     public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView("index");
-        modelAndView.addObject("stations", stationService.topStations());
+        modelAndView.addObject("stationBuckets", getStationsInBuckets());
         return modelAndView;
     }
 
-    @RequestMapping("/station/{stationId:\\d+}")
-    public ModelAndView station(@PathVariable String stationId) throws IOException {
-        playerManager.play(stationId);
-        ModelAndView modelAndView = new ModelAndView("station");
-        return modelAndView;
+    @RequestMapping("/test")
+    public ModelAndView test() {
+        return new ModelAndView("test");
     }
 
-    @ResponseBody
-    @RequestMapping("/song/{song:.+}")
-    public FileSystemResource song(@PathVariable String song) {
-        return new FileSystemResource(new File("songs/" + song));
+    private List<List<Station>> getStationsInBuckets() {
+        List<Station> stations = stationService.topStations();
+        List<List<Station>> buckets = new ArrayList<>();
+        List<Station> bucket = new ArrayList<>();
+        buckets.add(bucket);
+
+        for (int i = 1; i < stations.size() + 1; i++) {
+            bucket.add(stations.get(i - 1));
+
+            if (i % 5 == 0) {
+                bucket = new ArrayList<>();
+                buckets.add(bucket);
+            }
+        }
+
+        return buckets;
     }
 }

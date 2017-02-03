@@ -1,21 +1,30 @@
 package jango;
 
-import at.rseiler.jango.core.*;
+import at.rseiler.jango.core.RequestService;
+import at.rseiler.jango.core.player.Player;
+import at.rseiler.jango.core.song.*;
+import at.rseiler.jango.core.station.StationServiceImpl;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.CancellationException;
 
 public class JangoCLPlayer {
 
+    private static final int DEFAULT_PORT = 9888;
     private static Player PLAYER;
+    private static NextSongService nextSongService;
 
     public static void main(String[] args) throws IOException {
         RequestService requestService = new RequestService();
 
         if (args.length == 1) {
             if (args[0].equals("stations")) {
-                new StationServiceImpl(requestService).topStations().stream()
+                new StationServiceImpl(requestService)
+                        .topStations()
                         .forEach(station -> System.out.println(station.getId() + " " + station.getName()));
             } else {
                 usage();
@@ -29,18 +38,23 @@ public class JangoCLPlayer {
         }
 
         if ("slave".equals(args[0])) {
-            TcpClient tcpClient = new TcpClient(new Socket("localhost", 9888));
+            String[] address = args[1].split(":");
+            String host = address[0];
+            int port = address.length == 2 ? Integer.parseInt(address[1]) : DEFAULT_PORT;
+            TcpClient tcpClient = new TcpClient(new Socket(host, port));
             tcpClient.start();
         } else {
             addShutdownHook();
 
-            String stationUri = "http://www.jango.com/stations/" + args[1] + "/tunein";
-            SongService songService = new SongServiceWithConsoleLogging(
-                    new SongServiceWithStoring(
-                            new SongServiceImpl(requestService, stationUri)
-                    ));
-            PLAYER = new Player(args[0], songService);
-            PLAYER.playSongs();
+            PLAYER = new Player(args[0]);
+            List<Class<? extends NextSongServiceDecorator>> decorators = Arrays.asList(
+                    NextSongServiceWithConsoleLogging.class,
+                    NextSongServiceWithStoring.class
+            );
+            nextSongService = new SongServiceBuilder(new NextSongServiceImpl(requestService, args[1]))
+                    .withDecorators(decorators)
+                    .build();
+            playNextSong();
 
             processCommands();
         }
@@ -48,6 +62,18 @@ public class JangoCLPlayer {
         Scanner scanner = new Scanner(System.in);
         scanner.hasNextLine();
     }
+
+    private static void playNextSong() {
+        PLAYER.play(nextSongService.getNextSong())
+                .whenComplete(JangoCLPlayer::whenComplete);
+    }
+
+    private static void whenComplete(SongData songData, Throwable throwable) {
+        if (!(throwable instanceof CancellationException)) {
+            playNextSong();
+        }
+    }
+
 
     /**
      * Prints the usage command.
@@ -72,7 +98,7 @@ public class JangoCLPlayer {
                     break;
                 case "next":
                 case "n":
-                    PLAYER.killPlayer();
+                    PLAYER.stop();
                     break;
                 case "exit":
                 case "quit":
@@ -81,7 +107,7 @@ public class JangoCLPlayer {
                     PLAYER.stop();
                     break inputLoop;
                 default:
-                    PLAYER.killPlayer();
+                    PLAYER.stop();
                     break;
             }
         }
@@ -101,6 +127,4 @@ public class JangoCLPlayer {
             }
         });
     }
-
-
 }

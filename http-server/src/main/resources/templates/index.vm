@@ -1,6 +1,118 @@
-<h1>Stations</h1>
-#foreach($station in $stations)
-    <div>
-        <a href="/station/$station.Id">$station.Name</a>
-    </div>
-#end
+<div id="debug"></div>
+<div>
+    <span id="song-info"></span> (<span id="pause-info">playing</span>)
+</div>
+<button id="next">Next</button>
+<button id="toggle-pause">Pause</button>
+<button id="toggle-output">Audio On</button>
+
+<h2>Stations</h2>
+<div class="station-container">
+    #foreach($stations in $stationBuckets)
+        <div>
+            #foreach($station in $stations)
+                <div data-station-id="$station.Id">
+                    $station.Name
+                </div>
+            #end
+        </div>
+    #end
+</div>
+
+<script>
+    var audio;
+    var pause = false;
+    var outputEnabled = false;
+
+    //    audio = new Audio("http://192.168.0.12:8082/song/ls.mp3");
+    //    audio.currentTime = 10;
+    //    audio.play();
+
+    function showSong(songData) {
+        document.getElementById('song-info').innerHTML = songData.artist + ' - ' + songData.song;
+    }
+
+    function playSong(url, time) {
+        if (outputEnabled) {
+            pauseSong();
+
+            audio = new Audio(url);
+            audio.play();
+            if (audio.fastSeek) {
+                audio.fastSeek(parseFloat(time));
+            } else {
+                audio.currentTime = parseFloat(time);
+            }
+        }
+    }
+
+    function showPause() {
+        document.getElementById('pause-info').innerHTML = pause ? 'pausing' : 'paying';
+    }
+
+    function togglePause() {
+        pause = !pause;
+
+        if (pause) {
+            pauseSong();
+        } else {
+            audio.play();
+        }
+    }
+
+    function pauseSong() {
+        if (audio) {
+            audio.pause();
+        }
+    }
+
+    //    var socket = {};
+    var socket = new WebSocket("ws://192.168.0.12:8082/stream");
+    socket.onmessage = function (event) {
+        var command = JSON.parse(event.data);
+        console.log(event.data);
+
+        switch (command.id) {
+            case 'PlayCmd':
+                showSong(command.data.songData);
+                playSong(command.data.songData.url, command.data.time)
+                break;
+            case 'PauseCmd':
+                togglePause();
+                showPause();
+                break;
+        }
+    }
+    socket.onopen = function () {
+        console.log("Socket has been opened!");
+    }
+    socket.onerror = function (e) {
+        alert('ws error: ' + JSON.stringify(e));
+    }
+
+    var toggleOutputBtn = document.getElementById('toggle-output');
+    toggleOutputBtn.addEventListener('click', function () {
+        outputEnabled = !outputEnabled;
+
+        if (!outputEnabled) {
+            pauseSong();
+        }
+
+        toggleOutputBtn.innerHTML = outputEnabled ? 'Audio Off' : 'Audio On';
+    });
+
+    document.getElementById('toggle-pause').addEventListener('click', function () {
+        fetch('/song/pause');
+    });
+
+    document.getElementById('next').addEventListener('click', function () {
+        fetch('/song/next');
+    });
+
+    var stations = document.querySelectorAll('[data-station-id]');
+    for (var i = 0; i < stations.length; i++) {
+        stations[i].addEventListener('click', function (e) {
+            fetch('/station/' + e.target.dataset.stationId);
+        });
+    }
+</script>

@@ -1,19 +1,19 @@
 package jango;
 
-import at.rseiler.jango.core.Player;
-import at.rseiler.jango.core.SongData;
-import at.rseiler.jango.core.SongService;
+import at.rseiler.jango.core.player.Player;
+import at.rseiler.jango.core.song.SongData;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.util.Arrays;
 
 
 public class TcpClient extends Thread {
 
     private final Socket socket;
-    private Player player;
+    private Player player = new Player("mplayer");
 
     public TcpClient(Socket socket) {
         this.socket = socket;
@@ -24,31 +24,24 @@ public class TcpClient extends Thread {
     public void run() {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
             while (true) {
-                String command = reader.readLine();
+                String[] command = reader.readLine().split("<>");
 
-                if (player != null) {
-                    player.stop();
+                switch (command[0]) {
+                    case "play":
+                        player.play(new SongData(command[1], "", ""), Long.parseLong(command[2]));
+                        break;
+                    case "pause":
+                        player.pause();
+                        break;
+                    case "ping":
+                        break;
+                    default:
+                        System.out.println("Unknown command: " + Arrays.toString(command));
                 }
-
-                player = new Player("mplayer", new TcpClient.StaticSongService(new SongData(command, "", "")));
-                player.playSongs();
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private static class StaticSongService implements SongService {
-
-        private final SongData songData;
-
-        private StaticSongService(SongData songData) {
-            this.songData = songData;
-        }
-
-        @Override
-        public SongData nextSong() {
-            return songData;
-        }
-    }
 }

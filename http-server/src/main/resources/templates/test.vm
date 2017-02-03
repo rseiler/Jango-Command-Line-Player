@@ -1,0 +1,24 @@
+TEST
+
+<script>
+    var audio;
+
+    var socket = new WebSocket("ws://localhost:8082/stream");
+    socket.onmessage = function (event) {
+        var data = JSON.parse(event.data);
+
+        if (audio) {
+            audio.pause();
+        }
+
+        audio = new Audio(data.songData.url);
+        audio.fastSeek(data.time);
+        audio.play();
+
+        console.log(data);
+    }
+    socket.onopen = function () {
+        console.log("Socket has been opened!");
+    }
+</script>
+

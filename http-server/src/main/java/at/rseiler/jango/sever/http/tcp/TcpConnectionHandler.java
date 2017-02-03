@@ -1,51 +1,60 @@
 package at.rseiler.jango.sever.http.tcp;
 
-import at.rseiler.jango.core.SongData;
-import at.rseiler.jango.core.SongService;
-import org.apache.commons.io.IOUtils;
+import at.rseiler.jango.core.song.SongData;
+import at.rseiler.jango.sever.http.util.IpUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.net.InetAddress;
 import java.net.Socket;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-public class TcpConnectionHandler extends Thread {
-
-    private final static Pattern LENGTH_PATTERN = Pattern.compile("ID_LENGTH=(\\d+.\\d+)");
+class TcpConnectionHandler {
+    private static final Logger LOGGER = LoggerFactory.getLogger(TcpConnectionHandler.class);
     private final Socket socket;
-    private final SongService songService;
+    private final DataOutputStream output;
+    private final int port;
 
-    public TcpConnectionHandler(Socket socket, SongService songService) {
+    TcpConnectionHandler(Socket socket, int port) throws IOException {
         this.socket = socket;
-        this.songService = songService;
+        this.output = new DataOutputStream(socket.getOutputStream());
+        this.port = port;
     }
 
-    @Override
-    public void run() {
-        try (DataOutputStream output = new DataOutputStream(socket.getOutputStream())) {
-            while (true) {
-                SongData songData = songService.nextSong();
-
-                try {
-                    Process process = new ProcessBuilder("mplayer", "-really-quiet", "-vo", "null", "-ao", "null", "-frames", "0", "-identify", songData.getUrl()).start();
-                    Matcher matcher = LENGTH_PATTERN.matcher(IOUtils.toString(process.getInputStream()));
-
-                    if (matcher.find()) {
-                        double length = Double.parseDouble(matcher.group(1));
-
-                        output.writeBytes("http://" + InetAddress.getLocalHost().getHostAddress() + ":8080/song/" + songData.getArtist() + " - " + songData.getSong() + ".m4p\n");
-                        output.flush();
-
-                        Thread.sleep((long) (length * 1000));
-                    }
-                } catch (IOException | InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
+    void sendPlaySong(SongData songData, long songTime) throws RuntimeException {
+        try {
+            output.writeBytes("play<>http://" + IpUtil.getLocalIp() + ":" + port + "/song/" + songData.getFileName() + "<>" + songTime + "\n");
+            output.flush();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
+
+    void sendPause() throws RuntimeException {
+        try {
+            output.writeBytes("pause\n");
+            output.flush();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    void ping() throws RuntimeException {
+        try {
+            output.writeBytes("pause\n");
+            output.flush();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    void close() {
+        try {
+            output.close();
+            socket.close();
+        } catch (Exception e) {
+            LOGGER.error("Failed to close TCP connection", e);
+        }
+    }
+
 }
