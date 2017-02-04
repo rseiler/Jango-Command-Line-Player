@@ -1,6 +1,6 @@
 package at.rseiler.jango.sever.http.tcp;
 
-import at.rseiler.jango.core.ObjectMapperUtil;
+import at.rseiler.jango.core.util.ObjectMapperUtil;
 import at.rseiler.jango.core.command.Command;
 import at.rseiler.jango.core.service.ExecuteService;
 import at.rseiler.jango.sever.http.command.mapper.CommandExecMapper;

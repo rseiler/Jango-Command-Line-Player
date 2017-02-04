@@ -10,9 +10,10 @@ import java.util.concurrent.CancellationException;
 
 public class LocalPlayer implements Player {
 
-    private static final List<Class<? extends NextSongServiceDecorator>> DECORATORS = Arrays.asList(
-            NextSongServiceWithConsoleLogging.class,
-            NextSongServiceWithStoring.class
+    private static final List<Class<? extends NSSDecorator>> DECORATORS = Arrays.asList(
+            NSSWithConsoleLogging.class,
+            NSSWithFileLogging.class,
+            NSSWithStoring.class
     );
     private final MPlayer MPlayer = new MPlayer();
     private NextSongService nextSongService;
@@ -43,7 +44,7 @@ public class LocalPlayer implements Player {
     }
 
     public void setStationId(String stationId) throws IOException {
-        nextSongService = new SongServiceBuilder(new NextSongServiceImpl(stationId))
+        nextSongService = new SongServiceBuilder(new NextSongServiceImpl("http://www.jango.com", stationId))
                 .withDecorators(DECORATORS)
                 .build();
 

@@ -1,14 +1,10 @@
 package at.rseiler.jango.core.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
 public class ExecuteService {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ExecuteService.class);
     private final Object mapper;
 
     public ExecuteService(Object mapper) {
@@ -25,7 +21,7 @@ public class ExecuteService {
                     .orElseThrow(() -> new RuntimeException("Failed find execute method"))
                     .invoke(execObj, arg);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            LOGGER.error("Failed to execute command", e);
+            throw new RuntimeException("Failed to execute command", e);
         }
     }
 }

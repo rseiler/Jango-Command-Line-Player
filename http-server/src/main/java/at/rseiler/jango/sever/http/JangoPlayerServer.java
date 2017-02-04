@@ -1,7 +1,7 @@
 package at.rseiler.jango.sever.http;
 
 import at.rseiler.jango.core.station.StationService;
-import at.rseiler.jango.core.station.StationServiceImpl;
+import at.rseiler.jango.core.station.StationServiceGrabber;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -23,6 +23,6 @@ public class JangoPlayerServer {
 
     @Bean
     StationService stationService() {
-        return new StationServiceImpl();
+        return new StationServiceGrabber("http://www.jango.com");
     }
 }

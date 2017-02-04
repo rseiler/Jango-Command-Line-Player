@@ -27,8 +27,8 @@ public class CommandExecTest {
 
     @Test
     public void play() throws Exception {
-        new PlayCommandExec(new SongData("http://localhost/song/song.mp4", "", ""), 1).execute(slavePlayer);
+        new PlayCommandExec(new SongData("http://localhost/song/song.m4p", "", ""), 1).execute(slavePlayer);
 
-        verify(slavePlayer).play("http://localhost/song/song.mp4", 1.0);
+        verify(slavePlayer).play("http://localhost/song/song.m4p", 1.0);
     }
 }

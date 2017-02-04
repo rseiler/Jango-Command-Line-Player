@@ -1,6 +1,6 @@
 package at.rseiler.jango.clplayer.player;
 
-import at.rseiler.jango.core.ObjectMapperUtil;
+import at.rseiler.jango.core.util.ObjectMapperUtil;
 import at.rseiler.jango.core.command.NextSongCommand;
 import at.rseiler.jango.core.command.PauseCommand;
 import at.rseiler.jango.core.command.StationCommand;

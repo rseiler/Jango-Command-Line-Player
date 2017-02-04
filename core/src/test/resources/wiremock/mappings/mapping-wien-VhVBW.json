@@ -1,0 +1,21 @@
+{
+  "id" : "43c8479b-1dc1-34e8-9b9e-159418f3b9a1",
+  "request" : {
+    "url" : "/wien/",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-wien-VhVBW.txt",
+    "headers" : {
+      "Date" : "Fri, 27 Jan 2017 07:27:18 GMT",
+      "Server" : "Jetty(6.1.22)",
+      "X-Cache" : "MISS from 127.0.0.1",
+      "Content-Type" : "text/html; charset=utf-8",
+      "Set-Cookie" : "HopSession=127.0.0.213.47.175.1neew7x61cv9l; Path=/; HttpOnly",
+      "Accept-Ranges" : "none",
+      "Connection" : "close"
+    }
+  },
+  "uuid" : "43c8479b-1dc1-34e8-9b9e-159418f3b9a1"
+}

@@ -49,6 +49,6 @@ public class CommandExecTest {
     }
 
     private SongData createSongData() {
-        return new SongData("http://localhost/song/song.mp4", "artist", "song");
+        return new SongData("http://localhost/song/song.m4p", "artist", "song");
     }
 }

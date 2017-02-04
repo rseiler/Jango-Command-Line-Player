@@ -19,9 +19,10 @@ import java.util.List;
 public class SongServiceManager {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SongServiceManager.class);
-    private static final List<Class<? extends NextSongServiceDecorator>> SONG_SERVICE_DECORATORS = Arrays.asList(
-            NextSongServiceWithConsoleLogging.class,
-            NextSongServiceWithStoring.class
+    private static final List<Class<? extends NSSDecorator>> SONG_SERVICE_DECORATORS = Arrays.asList(
+            NSSWithConsoleLogging.class,
+            NSSWithFileLogging.class,
+            NSSWithStoring.class
     );
     private final ApplicationEventPublisher publisher;
     private NextSongService nextSongService;
@@ -34,7 +35,7 @@ public class SongServiceManager {
     @EventListener(StationEvent.class)
     public void handleStationEvent(StationEvent stationEvent) {
         try {
-            nextSongService = new SongServiceBuilder(new NextSongServiceImpl(stationEvent.getStationId()))
+            nextSongService = new SongServiceBuilder(new NextSongServiceImpl("http://www.jango.com", stationEvent.getStationId()))
                     .withDecorators(SONG_SERVICE_DECORATORS)
                     .build();
         } catch (IOException e) {

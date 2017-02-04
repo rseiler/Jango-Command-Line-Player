@@ -1,6 +1,6 @@
 package at.rseiler.jango.sever.http.tcp;
 
-import at.rseiler.jango.core.ObjectMapperUtil;
+import at.rseiler.jango.core.util.ObjectMapperUtil;
 import at.rseiler.jango.core.command.PauseCommand;
 import at.rseiler.jango.core.command.PlayCommand;
 import at.rseiler.jango.core.song.SongData;

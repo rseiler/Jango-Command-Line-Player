@@ -6,16 +6,16 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-public class NextSongServiceWithStoring extends NextSongServiceDecorator {
+public class NSSWithStoring extends NSSDecorator {
 
-    public NextSongServiceWithStoring(NextSongService nextSongService) {
+    public NSSWithStoring(NextSongService nextSongService) {
         super(nextSongService);
     }
 
     @Override
     public SongData getNextSong() {
         SongData songData = getNextSongService().getNextSong();
-        File file = new File("songs/" + songData.getFileName());
+        File file = new File("songs" + File.separator + songData.getFileName());
 
         if (!file.exists()) {
             try {

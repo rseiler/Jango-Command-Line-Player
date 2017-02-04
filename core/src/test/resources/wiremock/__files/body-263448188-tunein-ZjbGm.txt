@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" class="jango">
+
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# music: http://ogp.me/ns/music# jangoapp: http://ogp.me/ns/fb/jangoapp#">
+
+<title>Hot Hip Hop / R&amp;amp;B | jango.com</title>
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="XGFAWuMQGQp0ewzmne1p5CZvPThdLaKWhCx2YUH+Cl0=" name="csrf-token" />
+
+
+<meta property="og:site_name" content="Jango Radio"/>
+<meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="es_LA" />
+  <meta property="og:locale:alternate" content="pt_BR" />
+
+
+    <meta name="keywords" content="migos playing Bad And Boujee, currently playing, free songs, internet radio, web radio, personal radio, jango, jango.com, social internet radio, music recommendations, artist information, music " />
+  <meta name="description" content="Jango is about making online music social, fun and simple. Free personal radio that learns from your taste and connects you to others who like what you like."/>
+
+
+      <meta property="og:type" content="jangoapp:radio_station" />
+
+      <meta property="og:url" content="http://localhost:8080/stations/263448188/tunein"/>
+
+      <meta property="og:title" content="Hot Hip Hop / R&amp;B"/>
+             <meta property="og:image" content="http://s01.artist.images.jango.com/718/7186d3b2701dd14f32501f6a3c2bc0e5_lg.jpg" />
+        <meta property="og:image" content="http://s03.artist.images.jango.com/c8e/c8e731ad5a660ce729dffec3f12a05ca_lg.jpg" />
+        <meta property="og:image" content="http://s02.artist.images.jango.com/f85/f8504bb872b824559b09459648f98e01_lg.jpg" />
+        <meta property="og:image" content="http://s02.artist.images.jango.com/291/291fab14e307c3e8eaaf399a459a7cf0_lg.png" />
+      <meta property="og:description" content="Plays the hottest hip hop & R&B songs. Unlimited free music and only 1 ad per day." />
+
+
+
+<meta property="og:updated_time" content="1486240878" />
+
+<meta name="copyright" content="Jango 2007-2015" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+<meta http-equiv="Content-Language" content="en"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,requiresActiveX=true,chrome=1" />
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"3cd0146493","applicationID":"6326","transactionName":"dwkIFRdWCVVXFxYQElUSDw4LSkpNRwtcCgg=","queueTime":0,"applicationTime":231,"agent":""}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"XAUOUUVVCwEG"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{c.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(15),c={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(c.console=!0,o.indexOf("dev")!==-1&&(c.dev=!0),o.indexOf("nr_dev")!==-1&&(c.nrDev=!0))}catch(s){}c.nrDev&&i.on("internal-error",function(t){r(t.stack)}),c.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),c.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(c,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(c){try{i("ierr",[c,(new Date).getTime(),!0])}catch(s){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(16),c=t("ee"),s=t("loader"),f=window.onerror,u=!1,d=0;s.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),s.xhrWrappable&&t(9),u=!0)}c.on("fn-start",function(t,e,n){u&&(d+=1)}),c.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),c.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),c.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),c=t(7),s="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState";t("loader").features.stn=!0,t(6);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=Date.now())}),o.on(w,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on(m,function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),this.bstType])}),c.on(m,function(){this.bstStart=Date.now()}),c.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+s]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+s]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+s]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){c.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),c=t(17)(a,!0),s=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=s(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?c(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(17)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(17)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(17)(i),c="setTimeout",s="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[c,"setImmediate"],c+d),a.inPlace(window,[s],s+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(s+u,r),i.on(c+u,o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",c)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",c)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function c(t,e){return e}function s(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(17)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(s(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",c),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return h(r)}function i(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var c=t("handle"),s=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=h(r);i&&(n.txSize=i)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<d;a++)e.addEventListener(u[a],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[(new Date).getTime()].concat(c(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(15),c=t(16),s=t("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var u=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(u,function(t,e){f[e]=o(d+e,!0,"api")}),f.addPageAction=o(d+"addPageAction",!0),f.setCurrentRouteName=o(d+"routeName",!0),e.exports=newrelic,f.interaction=function(){return(new r).get()};var p=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[Date.now(),t,n],r),function(){if(s.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return e.apply(this,arguments)}finally{s.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){p[e]=o(l+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],14:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],15:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],16:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],17:[function(t,e,n){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",c=Object.prototype.hasOwnProperty,s=!1;e.exports=function(t,e){function n(t,e,n,o){function nrWrapper(){var r,a,c,s;try{a=this,r=i(arguments),c="function"==typeof n?n(r,a):n||{}}catch(f){l([f,"",[r,a,o],c])}u(e+"start",[r,a,o],c);try{return s=t.apply(a,r)}catch(d){throw u(e+"err",[r,a,d],c),d}finally{u(e+"end",[r,a,s],c)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,e,o,i){o||(o="");var a,c,s,f="-"===o.charAt(0);for(s=0;s<e.length;s++)c=e[s],a=t[c],r(a)||(t[c]=n(a,f?c+o:o,i,c))}function u(n,r,o){if(!s||e){var i=s;s=!0;try{t.emit(n,r,o)}catch(a){l([a,n,r,o])}s=i}}function d(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){l([r])}for(var o in t)c.call(t,o)&&(e[o]=t[o]);return e}function l(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),n.inPlace=f,n.flag=a,n}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,c,i):i()}function n(n,r,o){if(!l.aborted){t&&t(n,r,o);for(var i=e(o),a=h(n),c=a.length,s=0;s<c;s++)a[s].apply(i,r);var f=u[y[n]];return f&&f.push([g,n,r,i]),i}}function p(t,e){v[t]=h(t).concat(e)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(n)}function w(t,e){f(t,function(t,n){e=e||"feature",y[n]=e,e in u||(u[e]=[])})}var v={},y={},g={on:p,emit:n,get:m,listeners:h,context:e,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var c="nr@context",s=t("gos"),f=t(15),u={},d={},l=e.exports=o();l.backlog=u},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!b++){var t=g.info=NREUM.info,e=d.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();s(v,function(e,n){t[e]||(t[e]=n)}),c("mark",["onload",a()],null,"api");var n=d.createElement("script");n.src="https://"+t.agent,e.parentNode.insertBefore(n,e)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var c=t("handle"),s=t(15),f=t("ee"),u=window,d=u.document,l="addEventListener",p="attachEvent",h=u.XMLHttpRequest,m=h&&h.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:h,REQ:u.Request,EV:u.Event,PR:u.Promise,MO:u.MutationObserver},t(12);var w=""+location,v={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1016.min.js"},y=h&&m&&m[l]&&!/CriOS/.test(navigator.userAgent),g=e.exports={offset:a(),origin:w,features:{},xhrWrappable:y};d[l]?(d[l]("DOMContentLoaded",i,!1),u[l]("load",r,!1)):(d[p]("onreadystatechange",o),u[p]("onload",r)),c("mark",["firstbyte",a()],null,"api");var b=0},{}]},{},["loader",2,10,4,3]);</script>
+
+<meta name="robots" content="index,follow" />
+
+
+
+
+
+<meta name="apple-itunes-app" content="app-id=416867919">
+
+<meta name="application-name" content="Jango Radio"/>
+<meta name="msapplication-config" content="http://s01.jango.com/assets/logos/jango/browserconfig-9bff7a14ac10e37599478719b40026ec.xml" />
+<meta name="msapplication-tooltip" content="My Favorite Music!"/>
+<meta name="msapplication-window" content="width=1024;height=900"/>
+<meta name="msapplication-TileColor" content="#0d3356"/>
+<meta name="msapplication-TileImage" content="http://s02.jango.com/assets/logos/jango/Jango_favicon_dark_full_128-7094bd2012c8693b81866eedd6afb2a4.png"/>
+
+<meta name="msapplication-task" content="name=Browse Genres;
+action-uri=http://www.jango.com/browse_music;
+icon-uri=http://s01.jango.com/assets/logos/jango/favicon-8f25ce9207dae5bd49fae0a3170b1caf.ico"/>
+<meta name="msapplication-task" content="name=Favorite Songs;
+action-uri=http://www.jango.com/song_ratings/favorites;
+icon-uri=http://s01.jango.com/assets/logos/jango/favicon-8f25ce9207dae5bd49fae0a3170b1caf.ico"/>
+<meta name="msapplication-task" content="name=Jango Home;
+action-uri=http://www.jango.com;
+icon-uri=http://s01.jango.com/assets/logos/jango/favicon-8f25ce9207dae5bd49fae0a3170b1caf.ico" />
+
+<link rel="manifest" href="http://s02.jango.com/assets/logos/jango/manifest-1675a4546e46e57812eaf962d9540584.json"/>
+
+<link rel="icon" type="image/x-icon" href="http://s01.jango.com/assets/logos/jango/favicon-8f25ce9207dae5bd49fae0a3170b1caf.ico" />
+<link rel="icon" type="image/ico" href="http://s01.jango.com/assets/logos/jango/favicon-8f25ce9207dae5bd49fae0a3170b1caf.ico" />
+
+<link rel="icon" type="image/png" href="http://s01.jango.com/assets/logos/jango/favicon-32x32-2dc9a89ec1f2a93ac96d574cdbaea2d1.png" sizes="32x32"/>
+<link rel="icon" type="image/png" href="http://s02.jango.com/assets/logos/jango/android-chrome-192x192-b42d1884423ece699c4849b89a9e41ce.png" sizes="192x192"/>
+<link rel="icon" type="image/png" href="http://s02.jango.com/assets/logos/jango/favicon-96x96-93e4846e64818bc7e6fdf9fe4389f62f.png" sizes="96x96"/>
+<link rel="icon" type="image/png" href="http://s03.jango.com/assets/logos/jango/favicon-16x16-8f25ce9207dae5bd49fae0a3170b1caf.png" sizes="16x16"/>
+
+
+<link rel="apple-touch-icon" href="http://s02.jango.com/assets/logos/jango/apple-touch-icon-180x180-b6a7f996e90da4d8e9e1337ec1c0f48d.png">
+
+
+
+
+
+
+<script type="text/javascript" charset="utf-8">
+  document.domain = "jango.com";
+  var ver = 14;
+
+  var _jango = {};
+  _jango.locale = "en";
+  I18n = typeof(I18n) !== 'undefined' ? I18n : {};
+  I18n.defaultLocale = "en";
+  I18n.locale = "en";
+
+  if (self != top) { top.location.href = self.location.href; }
+</script>
+
+
+      <script src="//s01.jango.com/assets/urchin-fe231f663ba6badf937c9d928845b41d.js" type="text/javascript"></script>
+      <script type="text/javascript">
+        _uacct = "UA-211689-2";
+      </script>
+
+
+
+    <script type="text/javascript">
+var _jp  = window;
+var _jui = window;
+
+var _jm = {
+  branding               : "jango.com",
+  branding_display       : "Jango",
+  fb_ns                  : "jangoapp",
+  song                   : null,
+  artist                 : null,
+  content_loaded         : false,
+  player_loaded          : false,
+  stream_retried         : false,
+  jsi                    : null,
+  copy                   : null,
+  default_title          : "Jango - Unlimited Free Music Online Radio",
+  player_state           : null,
+  first_time             : true,
+  song_info              : null,
+  sm_url                 : "//s03.jango.com/assets/soundmanager2_flash9_2.97.20150601-f63c1bcdd70671fcb924521b96244309.swf",
+  sm_url_debug           : "//s01.jango.com/assets/soundmanager2_flash9_debug_2.97.20150601-b56f878d400540f6f25111842941d0b3.swf",
+  verbose                : false,
+  env                    : "production",
+  stations_stale         : false,
+  player_stale           : false,
+  regged                 : false,
+  prev_tunein            : null,
+  session_id             : "ff5e4a9498e8b8488dc70d1a1dd7f5fe",
+  session_plays          : 0,
+  station_id             : null,
+  song_id                : null,
+  skipped                : false,
+  next                   : false,
+  audio_ad               : null,
+  player_ad              : false,
+  image_path             : "//s02.jango.com/assets/",
+  locale                 : "en",
+  locale_lookup          : "en_US",
+  ad_account_more_numbers: 1053469,
+  dfp                    : [],
+  ad_delay               : 1000
+};
+// _jm.song_info                   = ;
+_jm.regged                      = false;
+_jm.clickctrl                   = function(){};
+_jm.face_time                   = null;
+_jm.next                        = false;
+_jm.skipped                     = false;
+_jm.default_to_songs            = false;
+_jm.refresh_faces               = true;
+_jm.user_id                     = 0;
+_jm.session_id                  = "ff5e4a9498e8b8488dc70d1a1dd7f5fe";
+_jm.station_id                  = "263448188"; 
+_jm.station_type                = 4;
+_jm.station_name                = "Hot Hip Hop / R&amp;B";
+_jm.player_loaded               = false;
+_jm.stream_loaded               = false;
+_jm.stations_stale              = true;
+_jm.player_wait                 = _jm.player_wait||false;
+_jm.fb_app_id                   = "131549503542594";
+_jm.fb_api_version              = "v2.3";
+_jm.lyrics_traffic              = false;
+_jm.usa                         = false;
+</script>
+
+  
+
+    
+<!--[if IE 8]>
+<script src="//s01.jango.com/assets/ie8-8f205c544bfa573269e3c4690a5a2b21.js" type="text/javascript"></script>
+<![endif]-->
+
+
+
+<!--[if lte IE 9]>
+  <script type="text/javascript">
+    //create a global html5 options object
+    window.html5 = {
+        'shivCSS': false
+    };
+</script>
+  <script src="//s02.jango.com/assets/iepolyfills-55abdf65bff4523570aa1ec4b58399dc.js" type="text/javascript"></script>
+  <script src="//s03.jango.com/assets/jquery-legacy-ac7dca7f1878640c87e117417fa0b4c1.js" type="text/javascript"></script>
+<![endif]-->
+
+
+
+<!--[if gte IE 9]><!-->
+  <script src="//s02.jango.com/assets/jquery2-dbf7abdc68c2f57676b81f23c5c395d7.js" type="text/javascript"></script>
+<!--<![endif]-->
+
+
+
+
+    <script src="//s03.jango.com/assets/application-56929d87bd08c894206747a70b36e2a3.js" type="text/javascript"></script>
+
+    <script src="//s02.jango.com/assets/jango_player-6f3a44a368a83f9be45ce3efe9c4b53d.js" type="text/javascript"></script>
+   <script src="//s03.jango.com/assets/react_ujs_req-b4cfebe5620e5bdf3cc3269fc6868433.js" type="text/javascript"></script>
+    <script src="//s03.jango.com/assets/guest-5dee73541d63b28a78332665e625a07f.js" type="text/javascript"></script>
+    <link href="//s02.jango.com/assets/application_guest-2ac902cee60766287281f0593fc59327.css" media="screen" rel="stylesheet" type="text/css" />
+
+    <link href="//s01.jango.com/assets/app_player-bfd5b6337e72c593ab618515425c2a5d.css" media="screen" rel="stylesheet" type="text/css" />
+
+  
+
+</head>
+<body id='body'>
+<div id="fb-root"></div>
+
+<div id='sm2-container' tg-static>&nbsp;</div>
+<div id="visness">
+
+  <div id="header_dock">
+  <div id="header_page">
+             <a href="/browse_music" class="player_sprite" id="masthead_logo"></a>    <div id="dock_middle">
+      <div id="headerfind">
+        <div class="headerfind_wrap">
+    <div id="search_name" class="">New Station</div>
+    </div>
+
+      <div id="headerfind_input_wrap">
+          <input type="text" title="" placeholder="Type any Artist" autocomplete="off" maxlength="64" name="search" id="headerfind-input"  value="" class="autocomplete_search" data-cb="play" data-source="header">
+
+
+      </div>
+        <button class="player_gray_grad" id="headerfind-submit" type="submit"><span class="right_black_triangle"></span></button>
+
+</div>
+
+
+
+
+    </div>
+    <table id="header_t">
+      <tr>
+        <td style="padding: 0px">
+          <div id="header_widget">
+  <a href="#"  onclick="return false;" id='nc_header_award' class='nc'>
+    <span id='nc_header_tippy' class='hoverwobble' title="NeuCoin"></span><span id="nc_award_balance">3</span> for You
+  </a>
+  <a href="#"  onclick="return false;" id='nc_header_widget' class='nc'>
+    <span id="nc_balance">25</span> for Tips
+  </a>
+
+
+
+  <div id='nc_info_wrap' class='nc' style="display:none;">
+    <div class="nc_info">
+      <div class="nc_triangle">&nbsp;</div>
+      <span style="font-weight:bold">You've got NeuCoins!</span><br>
+      The new virtual currency<br>
+      for playing games and tipping<br>
+      <br>
+      <a class='nc_green_cta' id="nc_info_wrap_cta" href="#" onclick="_jango.nc_info_overlay('you'); return false;">Learn more</a>
+      <span id='award_placeholder'></span>
+
+    </div>
+  </div>
+
+  <div id='nc_award_info'  class='nc' style="display:none;">
+    <div class="nc_info">
+      <div class="nc_triangle">&nbsp;</div>
+
+        <span style="font-weight:bold">Tip Emerging Artists! </span><br>
+        You can tip 5 artists every<br>
+        week paid for by sponsors<br>
+        <br>
+        <a class='nc_green_cta' id="nc_info_wrap_cta" href="#" onclick="_jango.nc_info_overlay('tips'); return false;">Learn more</a>
+
+    </div>
+  </div>
+
+  <script type="text/javascript" data-turbolinks-eval="always">
+  var init_nc_header_widget= function(){
+
+    $("#nc_header_widget, #nc_award_info").off("mouseenter").on("mouseenter", function(event){
+         $("#nc_award_info").show(); event.stopPropagation(); return false;
+     });
+    $("#nc_header_widget, #nc_award_info").off("mouseleave").on("mouseleave", function(){ $("#nc_award_info").hide(); });
+
+
+    $("#nc_header_award, #nc_info_wrap").off("mouseenter").on("mouseenter", function(event){
+       $("#nc_info_wrap").show();event.stopPropagation(); return false;
+     });
+    $("#nc_header_award, #nc_info_wrap").off("mouseleave").on("mouseleave", function(){ $("#nc_info_wrap").hide(); });
+
+    $('.nc_blue_link').off("click").click(function(event){ event.stopPropagation(); return false;  });
+
+    $('#nc_header_award').off("click").click(function(event){ _jango.nc_info_overlay('you'); event.stopPropagation(); return false; });
+    $('#nc_header_widget').off("click").click(function(event){  _jango.nc_info_overlay('tips'); event.stopPropagation();  return false;});
+
+  };
+  </script>
+</div>
+
+
+
+        </td>
+
+        <td style="float:right;padding:0">
+          <div id="header_locale_wrap" style="line-height:44px;height:44px;">
+            <a id="locale_drop" href="#" name="locale_drop"><span id=''></span><span id='player_world'><img alt="" height="14" src="//s01.jango.com/assets/White_Globe_Icon_64x64-123abb17c84762ed5a6b591c6ead2a05.png" width="14" /></span></a>
+            <div id="locale_links" class="main_menu_panels" style="display:none;line-height:normal;left:-76px;top:-23px">
+              <div class="menu_panel">
+                <div class="divitis">
+                  <div class="menu_section noborder">
+                    <ul>
+                      <li>
+                        English
+                      </li>                      <li>
+                        <a href="/super/update_locale?locale=es">Español</a>
+                      </li>                      <li>
+                        <a href="/super/update_locale?locale=pt">Português</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td style="float:right;padding-top:0px;">
+
+            <div id="user_menu" class="masthead_menu">
+  <a class="menu_expander nclk guest" href="#">&#x25BC;</a>
+  <a href="/home" class="first_link nclk" id="home_menu_link" name="home_menu">
+      Menu
+</a>  <div id="main_menu_panels" >
+  <div id="home_menu_panel" class="menu_panel guest" style="display:none" >
+
+        <div class="divitis">
+    <div class="menu_section noborder">
+      <ul>
+
+
+
+    <li><a href="#" class="popme">Sign Up</a></li>
+    <li><a href="#" class="login-link">Log In </a></li>
+
+
+    <li><a href="/song_ratings/favorites">Favorite Songs</a></li>
+    <li><a href="/song_ratings/bans">Banned Songs</a></li>
+    <li><a href="/users/0/stations">Station History</a></li>
+    <li><a href="/my_song_history">Song History</a></li>
+    <li><a href="/artists/search?search_type=song">Song Search</a></li>
+      </ul>
+    </div>
+
+
+  </div>
+  </div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+             <div id="round_login_module" class="application" style="display:none">
+
+    <button id="j_login_button" class="light_blue_login_button"><span class="blue_drop_arrow">&#9660;</span>Log In with Jango</button>
+
+        <div id='round_login_form' style="display:none">
+          <div id="login_wrap">
+
+                <p class="error" style="display:none;font-size:12px;color:#ff6600;font-weight:normal" id="login_error"></p>
+
+
+            <form action="https://localhost/login"  method="post" id="splash-login">
+              <input name="authenticity_token" type="hidden" value="XGFAWuMQGQp0ewzmne1p5CZvPThdLaKWhCx2YUH+Cl0=" />
+              <input type="text" class="login_input" id="email-input" name="user[email]" placeholder="Email" style="margin:8px 0" />
+              <input type="password" class="login_input" id="username-input" name="user[password]" placeholder="Password" style="margin:0 0 8px 0"/>
+              <button type="submit" name="round_this_login_btn" id="round_this_login_btn" class="new_green_button" >Log In with Jango</button>
+            </form>
+
+            <a href="#" id="forgotp">Forgot your password?</a>
+
+            </div>
+
+            <div id="forgot_password" style="display:none">
+
+              <form accept-charset="UTF-8" action="/users/forgot_password_email" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="XGFAWuMQGQp0ewzmne1p5CZvPThdLaKWhCx2YUH+Cl0=" /></div>
+              <div class="content" style="color:#333;font-size:12px">
+
+                <span style="color:#000;font-size:13px;">Forgot your password?</span> <a href="#" id="cancelforgotp">cancel</a>
+
+                <div id="fyp_message" class="" style="display: none;color:#ff6600"></div>
+
+                <div id="fyp_reset_link" style="display: none;margin:10px 0">Click the link in the email to reset your password.</div>
+
+
+                <div id="fyp_form" style="margin-top:4px">
+                  <label for="user_forgot_password_email">Enter your email and we will send your password to you.</label>
+                  <input maxlength="128" type="text" id="user_forgot_password_email" name="user[forgot_password_email]" class="text" placeholder="Email Address" autocomplete="off" />
+                  <button class="light_blue_login_button" type="submit">Send Password</button>
+                </div>
+              </div>
+</form>
+            </div>
+    </div>
+    <div class="error" id="round_fb_login_error_wrap"></div>
+    <button id="round_fb_login" class="round_fb_login dark_blue_login_button" style="margin-top:10px" rel="nav_login"><img alt="" src="//s01.jango.com/assets/x.gif" data-original="//s01.jango.com/assets/ico_facebook_f_13x26-4032f2a37ede196b69cb3222b2d621f5.png"><span class='fb_login_text'>Log In with Facebook</span></button>
+
+
+
+        <div style="text-align:left;color:#666;margin:12px 0 0 6px;font-size:11px;font-weight:normal">Are you a band/artist?<br>
+          Log in at <a href="http://radioairplay.com/bands/login" target="top">radioairplay.com</a>
+        </div>
+
+</div>
+
+
+
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+
+  <div id="scarf" refresh="scarf">
+      <div id="container" class="wide cf">
+
+       <div id="heading">
+        <div id="intro_header" tg-static>
+            <div id="one_ad_to_rule">
+    <div id="header_line">
+      <a href="#" class="new_green_button tiptop popme" id="signup_button_ib">Sign Up</a>
+  <a href="#" class="popme">Welcome to Jango - Free radio with only one audio ad per day </a>
+
+    </div>
+    <div id="sloro">
+      <div id="sloro_left" class="thirds">
+        <div class="app mobile_cta">
+
+          <img alt="Free On Mobile" src="//s01.jango.com/assets/x.gif" usemap="#tiny_map" data-original="//s03.jango.com/assets/mobile_app_92x80-c85bbac02ca60a75e58fe21129894291.png">
+          <span class="mod_head">Free On Mobile</span>
+          <span class="under">Available now for <br><a href="http://redirect.jango.com/ad=above_player_ios_click/itunes.apple.com/us/app/jango-radio-mobile/id416867919?mt=8&amp;uo=4" target="mobile"><span class='blued bold'>iPhone, iPad &</span></a><a href="http://redirect.jango.com/s/ad=above_player_android_click/market.android.com/details?id=com.jangomobile.android" target="mobile"> <span class='blued bold'>Android</span></a></span>
+
+          <map name="tiny_map">
+            <area shape="rect" coords="0,0,40,80"   href="http://redirect.jango.com/ad=above_player_ios_click/itunes.apple.com/us/app/jango-radio-mobile/id416867919?mt=8&amp;uo=4"    alt="" title="Install Jango iOS App"  target="mobile" />
+            <area shape="rect" coords="45,0,92,80" href="http://redirect.jango.com/s/ad=above_player_android_click/market.android.com/details?id=com.jangomobile.android" alt="" title="Install Jango Android App" target="mobile" />
+          </map>
+        </div>
+      </div>
+      <div id="sloro_mid" class="thirds">
+
+      <div id="sloro_usat" class="slowlyrotatingfan firstq">
+         <div class="sloro_logo">
+        <img alt="USA Today" src="//s01.jango.com/assets/x.gif" data-original="//s01.jango.com/assets/logos/usa_today_logo_90x51-e5e77f32bfee00e64797f892eab05dbd.jpg">
+          </div>
+           <div class="sloro_quote">
+        &ldquo;I'm in love with Jango&rdquo; - USA Today
+         </div>
+      </div>
+
+      <div id="sloro_wsj" class="slowlyrotatingfan">
+         <div class="sloro_logo">
+         <img alt="Wall Street Journal" src="//s01.jango.com/assets/x.gif" data-original="//s01.jango.com/assets/logos/wall_street_journal_90x39-32a316f1410709798cfa50626fe142ea.jpg">
+           </div>
+            <div class="sloro_quote tall">
+         &ldquo;Makes it fun to<br>discover new music&rdquo; - Wall Street Journal
+          </div>
+      </div>
+
+      <div id="sloro_pcworld" class="slowlyrotatingfan">
+         <div class="sloro_logo">
+         <img alt="PCWorld" src="//s01.jango.com/assets/x.gif" data-original="//s03.jango.com/assets/logos/pcworld_logo_90x23-e5402eac82e53cd4b57e2ab647720788.jpg">
+           </div>
+            <div class="sloro_quote">
+         &ldquo;Straight forward and<br>easy to navigate&rdquo; - PCWorld
+          </div>
+      </div>
+
+      <div id="sloro_cnet" class="slowlyrotatingfan" >
+         <div class="sloro_logo">
+        <img alt="CNET" src="//s01.jango.com/assets/x.gif" data-original="//s01.jango.com/assets/logos/cnet_logo_54x54-9573c3b35fd95548a2940041f18904f9.jpg">
+          </div>
+           <div class="sloro_quote">
+        &ldquo;Refreshingly simple<br>online radio&rdquo; - CNET
+         </div>
+      </div>
+
+      </div>
+      <div id="sloro_right" class="thirds">
+        <div class="fb-like" data-href="http://www.facebook.com/JangoRadio" data-width="256" data-layout="standard" data-action="like" data-show-faces="true" data-share="false" data-font="trebuchet ms"></div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+        </div>
+    </div>
+
+
+
+    <div id="masthead-outer" tg-static>
+      <div data-react-class="Player" data-react-props="{&quot;station_id&quot;:&quot;263448188&quot;,&quot;station&quot;:&quot;Hot Hip Hop / R&amp;B&quot;,&quot;artist&quot;:&quot;migos&quot;,&quot;artist_id&quot;:202104,&quot;band_id&quot;:null,&quot;song&quot;:&quot;Bad And Boujee&quot;,&quot;song_id&quot;:2090388,&quot;jango_can&quot;:&quot;migos&quot;,&quot;genre&quot;:&quot;pop&quot;,&quot;jsis&quot;:&quot;Gucci Mane Kevin Gates Chief Keef&quot;,&quot;j_esus&quot;:false,&quot;monetized&quot;:null,&quot;targeted_artist_id&quot;:null,&quot;airplay_song_id&quot;:null,&quot;similar_stations&quot;:[{&quot;station_id&quot;:336593253,&quot;station_name&quot;:&quot;Chart Topping 200&quot;},{&quot;station_id&quot;:319639266,&quot;station_name&quot;:&quot;Hot Rap&quot;},{&quot;station_id&quot;:263448187,&quot;station_name&quot;:&quot;Today&#x27;s Top 100&quot;},{&quot;station_id&quot;:361643959,&quot;station_name&quot;:&quot;Top Workout Hits&quot;},{&quot;station_id&quot;:348162483,&quot;station_name&quot;:&quot;Fly Hip Hop n R&amp;B Jams&quot;}],&quot;artist_link&quot;:&quot;http://www.jango.com/music/migos&quot;,&quot;album_art&quot;:&quot;//s01.artist.images.jango.com/e65/e6510d1783cb8116f5312a02a7e4a33a_lg.jpg&quot;,&quot;station_art&quot;:[&quot;//s01.artist.images.jango.com/699/699b020c39d3a615890d956fc6a1f84e_sm.jpg&quot;,&quot;//s03.artist.images.jango.com/3c3/3c3d4be4902df21bf3e2e4c9531a0bfc_sm.png&quot;,&quot;//s03.artist.images.jango.com/a94/a9484f154e8be97a4d4174895bfafd99_sm.jpg&quot;,&quot;//s03.artist.images.jango.com/6fa/6fa324b3a476c18ed6d483e8d71ced64_sm.jpg&quot;],&quot;station_name&quot;:&quot;Hot Hip Hop / R&amp;B&quot;,&quot;limited_station_name&quot;:&quot;Hot Hip Hop / R&amp;B&quot;,&quot;video_id&quot;:&quot;S-sJp1FfG7Q&quot;,&quot;video_link&quot;:&quot;/music/migos/Bad+And+Boujee/video&quot;,&quot;ytrid&quot;:559091,&quot;music_path&quot;:&quot;http://www.jango.com/music/migos&quot;,&quot;album&quot;:null,&quot;last_song_art&quot;:null,&quot;tweet&quot;:null,&quot;twandle&quot;:null,&quot;bio&quot;:null,&quot;lyrics&quot;:&quot;&quot;,&quot;lyrics_url&quot;:&quot;http://redirect.jango.com/ad=azlyrics_out/www.lyricsmode.com/lyrics/m/migos/bad_and_boujee.html&quot;,&quot;cb&quot;:1486240878,&quot;ver&quot;:14}"></div>
+
+  </div>
+
+
+
+
+     
+          <div id="column-wrapper" class="cf 2col_right ">
+ 
+           
+
+           <div id="cl">
+
+       
+<div id="browse_music_station" >
+  <div class="h45" style="padding:0">
+    <a href="/browse_music" class="top_level">Browse Music</a><div class="crumb">Hot Hip Hop / R&amp;B</div>
+  </div>
+
+  <div class="left" style="width:200px">
+          
+
+         <img alt="" class="left" height="100" src="//s01.artist.images.jango.com/718/7186d3b2701dd14f32501f6a3c2bc0e5_lg.jpg" width="100" />         <img alt="" class="left" height="100" src="//s03.artist.images.jango.com/c8e/c8e731ad5a660ce729dffec3f12a05ca_lg.jpg" width="100" />         <img alt="" class="left" height="100" src="//s02.artist.images.jango.com/f85/f8504bb872b824559b09459648f98e01_lg.jpg" width="100" />         <img alt="" class="left" height="100" src="//s02.artist.images.jango.com/291/291fab14e307c3e8eaaf399a459a7cf0_lg.png" width="100" />
+
+
+
+
+  <div class="p20 f13 fff bold f000" style="border-right:1px solid #9bacbf;clear:both">
+    About This Station
+  </div>
+  <div class="f13 f333 fff" style="padding:10px 20px 20px; border-right:1px solid #9bacbf;">Hot Hip Hop / R&amp;B Plays the hottest hip hop &amp; R&amp;B songs.</div>
+
+
+      
+
+<div id="similar_artists" class="fff cf f13">
+   <div  class="bold f000 p20">
+    Artists In This Station
+  </div>
+  <div>
+
+
+        <a href="/music/21+Savage" class="the_sim">
+        <img alt="21 Savage" src="//s01.jango.com/assets/x.gif" data-original="//s02.artist.images.jango.com/291/291fab14e307c3e8eaaf399a459a7cf0_lg.png">
+        <div>21 Savage</div>
+</a>
+
+    <hr class="list_divider" />
+
+        <a href="/music/Ugly+God" class="the_sim">
+        <img alt="Ugly God" src="//s01.jango.com/assets/x.gif" data-original="//s02.artist.images.jango.com/d40/d402206dd27885d98b96d4e9bf99932c_lg.png">
+        <div>Ugly God</div>
+</a>
+
+    <hr class="list_divider" />
+
+        <a href="/music/migos" class="the_sim">
+        <img alt="migos" src="//s01.jango.com/assets/x.gif" data-original="//s01.artist.images.jango.com/e65/e6510d1783cb8116f5312a02a7e4a33a_lg.jpg">
+        <div>migos</div>
+</a>
+
+    <hr class="list_divider" />
+
+        <a href="/music/Wale" class="the_sim">
+        <img alt="Wale" src="//s01.jango.com/assets/x.gif" data-original="//s03.artist.images.jango.com/9f1/9f16991eaa1be735f3e4ddadd5622b60_lg.jpg">
+        <div>Wale</div>
+</a>
+
+    <hr class="list_divider" />
+
+        <a href="/music/Kyle" class="the_sim">
+        <img alt="Kyle" src="//s01.jango.com/assets/x.gif" data-original="//s03.artist.images.jango.com/ed3/ed34a392cc2471dbb591b3f5a38d1ee7_lg.png">
+        <div>Kyle</div>
+</a>
+
+    <hr class="list_divider" />
+
+        <a href="/music/Rae+Sremmurd" class="the_sim">
+        <img alt="Rae Sremmurd" src="//s01.jango.com/assets/x.gif" data-original="//s01.artist.images.jango.com/718/7186d3b2701dd14f32501f6a3c2bc0e5_lg.jpg">
+        <div>Rae Sremmurd</div>
+</a>
+
+    <hr class="list_divider" />
+
+        <a href="/music/Big+Sean" class="the_sim">
+        <img alt="Big Sean" src="//s01.jango.com/assets/x.gif" data-original="//s01.artist.images.jango.com/995/99501394e28a28cc84872c91190ba951_lg.jpg">
+        <div>Big Sean</div>
+</a>
+
+    <hr class="list_divider" />
+
+        <a href="/music/DJ+Esco" class="the_sim">
+        <img alt="DJ Esco" src="//s01.jango.com/assets/x.gif" data-original="//s03.artist.images.jango.com/3c3/3c3d4be4902df21bf3e2e4c9531a0bfc_lg.png">
+        <div>DJ Esco</div>
+</a>
+
+    <hr class="list_divider" />
+
+  </div>
+  </div>
+
+
+  </div>
+  <div class="left" style="width:460px">
+        <div class="inh30 e4e5e6" >
+           Stations Similar To Hot Hip Hop / R&amp;B
+        </div>
+        
+<div class="fff cf" style="font-size:13px;padding:30px" id="in_stations">
+    
+
+
+<div class="genre_station_item cf" id="gsi_381381456">
+  
+   
+
+      <a href="/stations/381381456/play" style="width:100px;float:left;display:block;" target="player">
+
+               <img alt="" class="left" height="50" src="//s01.jango.com/assets/x.gif" style="width:50px;height:50px;" width="50" data-original="//s01.album.images.jango.com/fe/7d/fe7dc61a1bfc2d27118ab6dcdd4bd549_sm.jpg">
+               <img alt="" class="left" height="50" src="//s01.jango.com/assets/x.gif" style="width:50px;height:50px;" width="50" data-original="//s03.artist.images.jango.com/458/458f99056a7a26fa88be36d1879d68c9_sm.png">
+               <img alt="" class="left" height="50" src="//s01.jango.com/assets/x.gif" style="width:50px;height:50px;" width="50" data-original="//s01.artist.images.jango.com/699/699b020c39d3a615890d956fc6a1f84e_sm.jpg">
+               <img alt="" class="left" height="50" src="//s01.jango.com/assets/x.gif" style="width:50px;height:50px;" width="50" data-original="//s03.artist.images.jango.com/d6c/d6cd82948f9464c50ce539b91d5b21d0_sm.jpg">
+
+</a>
+
+    <div class="left left_body">
+      <a href="/stations/381381456/play" class="gsi_anchor" target="player">
+        <span class='g2b button'><span class='player_sprite play'></span></span>Prom Hits
+</a>      <div class="blurb"  >
+           Get your prom going with some of the best artist around.
+      </div>
+      <div>
+     
+            <a href="/music/Fifth+Harmony">Fifth Harmony</a>, 
+            <a href="/music/Alicia+Keys">Alicia Keys</a>, 
+            <a href="/music/Panic+At+The+Disco">Panic! At The Disco</a>, 
+            <a href="/music/Halsey">Halsey</a>, 
+            <a href="/music/Kent+Jones">Kent Jones</a>, 
+            <a href="/music/Beyonce">Beyonce</a>, 
+            <a href="/music/X+Ambassadors">X A&hellip;</a>
+      </div>
+    </div>
+
+
+
+</div>
+
+ <hr class="list_divider"/>
+
+
+
+
+
+    
+
+
+<div class="genre_station_item cf" id="gsi_388040591">
+  
+       <a href="/stations/388040591/play" target="player"><img alt="" class="left" src="//s01.jango.com/assets/x.gif" data-original="//s02.artist.images.jango.com/bf4/bf4989dca1b7df3b94510eaa3fe66394_lg.png"></a>
+
+    <div class="left left_body">
+      <a href="/stations/388040591/play" class="gsi_anchor" target="player">
+        <span class='g2b button'><span class='player_sprite play'></span></span>PnB Rock Radio
+</a>      <div class="blurb"  >
+           Plays PnB Rock along with similar artists like:
+      </div>
+      <div>
+     
+            <a href="/music/Young+M+A+">Young M.A.</a>, 
+            <a href="/music/Yo+Gotti">Yo Gotti</a>, 
+            <a href="/music/Jacquees">Jacquees</a>, 
+            <a href="/music/M+City+J+R+">M-City J.R.</a>, 
+            <a href="/music/Lil+Uzi+Vert">Lil Uzi Vert&hellip;</a>
+      </div>
+    </div>
+
+
+
+</div>
+
+ <hr class="list_divider"/>
+
+
+
+
+
+    
+
+
+<div class="genre_station_item cf" id="gsi_383492667">
+  
+       <a href="/stations/383492667/play" target="player"><img alt="" class="left" src="//s01.jango.com/assets/x.gif" data-original="//s02.artist.images.jango.com/291/291fab14e307c3e8eaaf399a459a7cf0_lg.png"></a>
+
+    <div class="left left_body">
+      <a href="/stations/383492667/play" class="gsi_anchor" target="player">
+        <span class='g2b button'><span class='player_sprite play'></span></span>21 Savage Radio
+</a>      <div class="blurb"  >
+           Plays 21 Savage along with similar artists like:
+      </div>
+      <div>
+     
+            <a href="/music/Duke">Duke</a>, 
+            <a href="/music/Rich+Homie+Quan">Rich Homie Quan</a>, 
+            <a href="/music/Ty+Dolla+Ign">Ty Dolla $Ign</a>, 
+            <a href="/music/Young+Thug">Young Thug</a>, 
+            <a href="/music/Young+Dolph">Young Dolph&hellip;</a>
+      </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+        
+
+
+
+      <div class="inh30 e4e5e6 tb">
+        <a name="now_playing" style="line-height:inherit">Popular Songs In Hot Hip Hop / R&amp;B</a>
+      </div>
+      <div id="artist_now_playing" class="fff cf">
+        <ul id="" class="cf">
+
+            
+
+<li class="song_li artist_song_li">
+
+<div style="height:45px">
+
+          <a href="/music/Big+Sean/Bounce+Back/video" class="watch_vid" data-player-video="{&quot;video_id&quot;:&quot;phr1pOFK1V8&quot;,&quot;ytrid&quot;:559025,&quot;pixel&quot;:&quot;artist_page&quot;}" title="Play Bounce Back Now!">
+            <img alt="Play Bounce Back" height="45" src="//s01.jango.com/assets/x.gif" title="Play Bounce Back Now!" width="60" data-original="https://i.ytimg.com/vi/phr1pOFK1V8/default.jpg">
+            <span class="play_me_lay">&#9658; Play</span>
+</a>
+     <div class="song_name" >
+        <a href="/music/Big+Sean/Bounce+Back/video" data-player-video="{&quot;video_id&quot;:&quot;phr1pOFK1V8&quot;,&quot;ytrid&quot;:559025,&quot;pixel&quot;:&quot;artist_page&quot;}">Bounce Back</a>
+     </div>
+
+    <div class="slinks">
+      <a href="http://redirect.jango.com/c/ad=J2L/www.lyricsmode.com/lyrics/b/big_sean/bounce_back.html" class="general_lyrics_link" target="_blank" title="Bounce Back lyrics">Lyrics</a>
+
+    </div>
+
+
+</div>
+</li>
+
+ <hr class="list_divider"/>
+
+
+<li class="song_li artist_song_li">
+
+<div style="height:45px">
+
+          <a href="/music/migos/T+Shirt/video" class="watch_vid" data-player-video="{&quot;video_id&quot;:&quot;1VUa99-tJqs&quot;,&quot;ytrid&quot;:562975,&quot;pixel&quot;:&quot;artist_page&quot;}" title="Play T-Shirt Now!">
+            <img alt="Play T-Shirt" height="45" src="//s01.jango.com/assets/x.gif" title="Play T-Shirt Now!" width="60" data-original="https://i.ytimg.com/vi/1VUa99-tJqs/default.jpg">
+            <span class="play_me_lay">&#9658; Play</span>
+</a>
+     <div class="song_name" >
+        <a href="/music/migos/T+Shirt/video" data-player-video="{&quot;video_id&quot;:&quot;1VUa99-tJqs&quot;,&quot;ytrid&quot;:562975,&quot;pixel&quot;:&quot;artist_page&quot;}">T-Shirt</a>
+     </div>
+
+    <div class="slinks">
+      <a href="http://redirect.jango.com/c/ad=J2L/www.lyricsmode.com/lyrics/m/migos/t_shirt.html" class="general_lyrics_link" target="_blank" title="T-Shirt lyrics">Lyrics</a>
+
+    </div>
+
+
+</div>
+</li>
+
+ <hr class="list_divider"/>
+
+
+<li class="song_li artist_song_li">
+
+<div style="height:45px">
+
+          <a href="/music/PnB+Rock/Misunderstood/video" class="watch_vid" data-player-video="{&quot;video_id&quot;:&quot;vTVk-Xi3WYg&quot;,&quot;ytrid&quot;:562977,&quot;pixel&quot;:&quot;artist_page&quot;}" title="Play Misunderstood Now!">
+            <img alt="Play Misunderstood" height="45" src="//s01.jango.com/assets/x.gif" title="Play Misunderstood Now!" width="60" data-original="https://i.ytimg.com/vi/vTVk-Xi3WYg/default.jpg">
+            <span class="play_me_lay">&#9658; Play</span>
+</a>
+     <div class="song_name" >
+        <a href="/music/PnB+Rock/Misunderstood/video" data-player-video="{&quot;video_id&quot;:&quot;vTVk-Xi3WYg&quot;,&quot;ytrid&quot;:562977,&quot;pixel&quot;:&quot;artist_page&quot;}">Misunderstood</a>
+     </div>
+
+    <div class="slinks">
+      <a href="http://redirect.jango.com/c/ad=J2L/www.lyricsmode.com/lyrics/p/pnb_rock/misunderstood.html" class="general_lyrics_link" target="_blank" title="Misunderstood lyrics">Lyrics</a>
+
+    </div>
+
+
+</div>
+</li>
+
+ <hr class="list_divider"/>
+
+
+<li class="song_li artist_song_li">
+
+<div style="height:45px">
+
+          <a href="/music/migos/Bad+And+Boujee/video" class="watch_vid" data-player-video="{&quot;video_id&quot;:&quot;S-sJp1FfG7Q&quot;,&quot;ytrid&quot;:559091,&quot;pixel&quot;:&quot;artist_page&quot;}" title="Play Bad And Boujee Now!">
+            <img alt="Play Bad And Boujee" height="45" src="//s01.jango.com/assets/x.gif" title="Play Bad And Boujee Now!" width="60" data-original="https://i.ytimg.com/vi/S-sJp1FfG7Q/default.jpg">
+            <span class="play_me_lay">&#9658; Play</span>
+</a>
+     <div class="song_name" >
+        <a href="/music/migos/Bad+And+Boujee/video" data-player-video="{&quot;video_id&quot;:&quot;S-sJp1FfG7Q&quot;,&quot;ytrid&quot;:559091,&quot;pixel&quot;:&quot;artist_page&quot;}">Bad And Boujee</a>
+     </div>
+
+    <div class="slinks">
+      <a href="http://redirect.jango.com/c/ad=J2L/www.lyricsmode.com/lyrics/m/migos/bad_and_boujee.html" class="general_lyrics_link" target="_blank" title="Bad And Boujee lyrics">Lyrics</a>
+
+    </div>
+
+
+</div>
+</li>
+
+ <hr class="list_divider"/>
+
+
+<li class="song_li artist_song_li">
+
+<div style="height:45px">
+
+          <a href="/music/Future/Used+To+This/video" class="watch_vid" data-player-video="{&quot;video_id&quot;:&quot;SZDmuHSqwtg&quot;,&quot;ytrid&quot;:559022,&quot;pixel&quot;:&quot;artist_page&quot;}" title="Play Used To This Now!">
+            <img alt="Play Used To This" height="45" src="//s01.jango.com/assets/x.gif" title="Play Used To This Now!" width="60" data-original="https://i.ytimg.com/vi/SZDmuHSqwtg/default.jpg">
+            <span class="play_me_lay">&#9658; Play</span>
+</a>
+     <div class="song_name" >
+        <a href="/music/Future/Used+To+This/video" data-player-video="{&quot;video_id&quot;:&quot;SZDmuHSqwtg&quot;,&quot;ytrid&quot;:559022,&quot;pixel&quot;:&quot;artist_page&quot;}">Used To This</a>
+     </div>
+
+    <div class="slinks">
+      <a href="http://redirect.jango.com/c/ad=J2L/www.lyricsmode.com/lyrics/f/future/used_to_this.html" class="general_lyrics_link" target="_blank" title="Used To This lyrics">Lyrics</a>
+
+    </div>
+
+
+</div>
+</li>
+
+ <hr class="list_divider"/>
+
+
+<li class="song_li artist_song_li">
+
+<div style="height:45px">
+        <div class="li_play" style="width:60px;height:45px;float:left;">&nbsp;</div>
+
+     <div class="song_name" >
+        Otw (Remix)
+     </div>
+
+    <div class="slinks">
+      <a href="http://redirect.jango.com/c/ad=J2L/www.lyricsmode.com/lyrics/d/dj_luke_nasty/otw_remix_.html" class="general_lyrics_link" target="_blank" title="Otw (Remix) lyrics">Lyrics</a>
+
+    </div>
+
+
+</div>
+</li>
+
+ <hr class="list_divider"/>
+
+
+<li class="song_li artist_song_li">
+
+<div style="height:45px">
+
+          <a href="/music/J+Cole/Deja+Vu/video" class="watch_vid" data-player-video="{&quot;video_id&quot;:&quot;H2saJ_0SbD8&quot;,&quot;ytrid&quot;:561037,&quot;pixel&quot;:&quot;artist_page&quot;}" title="Play Deja Vu Now!">
+            <img alt="Play Deja Vu" height="45" src="//s01.jango.com/assets/x.gif" title="Play Deja Vu Now!" width="60" data-original="https://i.ytimg.com/vi/H2saJ_0SbD8/default.jpg">
+            <span class="play_me_lay">&#9658; Play</span>
+</a>
+     <div class="song_name" >
+        <a href="/music/J+Cole/Deja+Vu/video" data-player-video="{&quot;video_id&quot;:&quot;H2saJ_0SbD8&quot;,&quot;ytrid&quot;:561037,&quot;pixel&quot;:&quot;artist_page&quot;}">Deja Vu</a>
+     </div>
+
+    <div class="slinks">
+      <a href="http://redirect.jango.com/c/ad=J2L/www.lyricsmode.com/lyrics/j/j_cole/deja_vu.html" class="general_lyrics_link" target="_blank" title="Deja Vu lyrics">Lyrics</a>
+
+    </div>
+
+
+</div>
+</li>
+
+ <hr class="list_divider"/>
+
+
+<li class="song_li artist_song_li">
+
+<div style="height:45px">
+
+          <a href="/music/Future/One+Hunnid+Racks/video" class="watch_vid" data-player-video="{&quot;video_id&quot;:&quot;PCDergUJ0QM&quot;,&quot;ytrid&quot;:557918,&quot;pixel&quot;:&quot;artist_page&quot;}" title="Play One Hunnid Racks Now!">
+            <img alt="Play One Hunnid Racks" height="45" src="//s01.jango.com/assets/x.gif" title="Play One Hunnid Racks Now!" width="60" data-original="https://i.ytimg.com/vi/PCDergUJ0QM/default.jpg">
+            <span class="play_me_lay">&#9658; Play</span>
+</a>
+     <div class="song_name" >
+        <a href="/music/Future/One+Hunnid+Racks/video" data-player-video="{&quot;video_id&quot;:&quot;PCDergUJ0QM&quot;,&quot;ytrid&quot;:557918,&quot;pixel&quot;:&quot;artist_page&quot;}">One Hunnid Racks</a>
+     </div>
+
+    <div class="slinks">
+      <a href="http://redirect.jango.com/c/ad=J2L/www.lyricsmode.com/lyrics/f/future/one_hunnid_racks.html" class="general_lyrics_link" target="_blank" title="One Hunnid Racks lyrics">Lyrics</a>
+
+    </div>
+
+
+</div>
+</li>
+
+ <hr class="list_divider"/>
+
+
+<li class="song_li artist_song_li">
+
+<div style="height:45px">
+
+          <a href="/music/Kid+Cudi/Baptized+In+Fire+feat+Travis+Scott+/video" class="watch_vid" data-player-video="{&quot;video_id&quot;:&quot;HeZqmGB7NFw&quot;,&quot;ytrid&quot;:561430,&quot;pixel&quot;:&quot;artist_page&quot;}" title="Play Baptized In Fire (feat. Travis Scott) Now!">
+            <img alt="Play Baptized In Fire (feat. Travis Scott)" height="45" src="//s01.jango.com/assets/x.gif" title="Play Baptized In Fire (feat. Travis Scott) Now!" width="60" data-original="https://i.ytimg.com/vi/HeZqmGB7NFw/default.jpg">
+            <span class="play_me_lay">&#9658; Play</span>
+</a>
+     <div class="song_name" >
+        <a href="/music/Kid+Cudi/Baptized+In+Fire+feat+Travis+Scott+/video" data-player-video="{&quot;video_id&quot;:&quot;HeZqmGB7NFw&quot;,&quot;ytrid&quot;:561430,&quot;pixel&quot;:&quot;artist_page&quot;}">Baptized In Fire (feat. Travis Scott)</a>
+     </div>
+
+    <div class="slinks">
+      <a href="http://redirect.jango.com/c/ad=J2L/www.lyricsmode.com/lyrics/k/kid_cudi/baptized_in_fire_feat_travis_scott_.html" class="general_lyrics_link" target="_blank" title="Baptized In Fire (feat. Travis Scott) lyrics">Lyrics</a>
+
+    </div>
+
+
+</div>
+</li>
+
+ <hr class="list_divider"/>
+
+
+<li class="song_li artist_song_li">
+
+<div style="height:45px">
+
+          <a href="/music/J+Cole/everybody+dies/video" class="watch_vid" data-player-video="{&quot;video_id&quot;:&quot;-5slZHLSnow&quot;,&quot;ytrid&quot;:560958,&quot;pixel&quot;:&quot;artist_page&quot;}" title="Play everybody dies Now!">
+            <img alt="Play everybody dies" height="45" src="//s01.jango.com/assets/x.gif" title="Play everybody dies Now!" width="60" data-original="https://i.ytimg.com/vi/-5slZHLSnow/default.jpg">
+            <span class="play_me_lay">&#9658; Play</span>
+</a>
+     <div class="song_name" >
+        <a href="/music/J+Cole/everybody+dies/video" data-player-video="{&quot;video_id&quot;:&quot;-5slZHLSnow&quot;,&quot;ytrid&quot;:560958,&quot;pixel&quot;:&quot;artist_page&quot;}">everybody dies</a>
+     </div>
+
+    <div class="slinks">
+      <a href="http://redirect.jango.com/c/ad=J2L/www.lyricsmode.com/lyrics/j/j_cole/everybody_dies.html" class="general_lyrics_link" target="_blank" title="everybody dies lyrics">Lyrics</a>
+
+    </div>
+
+
+</div>
+</li>
+
+
+        </ul>
+      </div>
+
+  </div>
+</div>
+
+
+           </div>
+           <div id="r" class="cf" >
+             
+
+
+       
+
+
+
+           </div>
+
+          </div>
+
+
+
+     
+  </div>
+
+</div>
+
+  <div data-react-class="Footer" data-react-props="{&quot;mode&quot;:&quot;app&quot;,&quot;branding&quot;:&quot;jango.com&quot;,&quot;images&quot;:{&quot;placeholder&quot;:&quot;//s01.jango.com/assets/x.gif&quot;,&quot;four_quotes&quot;:&quot;//s03.jango.com/assets/logos/four_quotes_white_643x45-0fa5e2cedd03b96eb91156a3c154e7fa.jpg&quot;,&quot;jmn_logo&quot;:&quot;//s02.jango.com/assets/jmn4_1_small_171x24-ad9255bff21b404f7d87f5f176a67633.jpg&quot;}}"></div>
+
+  
+
+
+  <div id='script-refresher' style="display:none;">
+
+    
+  <script type="text/javascript" data-turbolinks-eval="always" data-priority="first">
+    _jm.dfp    = [["J_ROS_ATF300x600",300,600,"div-gpt-ad-1342124957108-300x600",{"margin":0,"j_action":null}],["J_ROS_ATF300",300,250,"div-gpt-ad-1342124957108-300x250-1",{"margin":10,"j_action":null}],["J_ROS_BTF300",300,250,"div-gpt-ad-1342124957108-300x250-2",{"margin":10,"j_action":null}],["J_ROS_BTF300B",300,250,"div-gpt-ad-1342124957108-300x250-3",{"margin":10,"j_action":null}],["J_ROS_BTF728",728,90,"div-gpt-ad-1342124957108-728x90-BTF",{"margin":10,"j_action":null}],["J_480x350",480,350,"div-gpt-ad-1342124957108-480x350-BTF",{"margin":10,"j_action":null}],["1x1all_pages",1,1,"div-gpt-ad-1342124957108-1x1-1",{"margin":0,"j_action":null}],["player_ad",320,50,"div-gpt-ad-1342124957108-320x50-player",{"margin":0,"j_action":null}]];
+    _jm.prebid_units = [{"code":"div-gpt-ad-1342124957108-300x250-1","sizes":[[300,250]],"bids":[{"bidder":"appnexus","params":{"placementId":10178793}}]},{"code":"div-gpt-ad-1342124957108-300x250-2","sizes":[[300,250]],"bids":[{"bidder":"appnexus","params":{"placementId":10178795}}]},{"code":"div-gpt-ad-1342124957108-300x250-3","sizes":[[300,250]],"bids":[{"bidder":"appnexus","params":{"placementId":10178798}}]},{"code":"div-gpt-ad-1342124957108-728x90-BTF","sizes":[[728,90]],"bids":[{"bidder":"appnexus","params":{"placementId":10178801}}]}];
+  </script>
+
+
+
+
+
+<img width="1" height="1" src="//action.media6degrees.com/orbserv/hbpix?pixId=34646&pcv=63" />
+
+
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '527060217451753');
+fbq('track', "PageView");</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=527060217451753&ev=PageView&noscript=1"
+/></noscript>
+
+
+
+
+        <script type="text/javascript" data-turbolinks-eval="always">
+        _jm.usa = false;
+        </script>
+
+        
+  </div>
+
+</div>
+</body>
+</html>

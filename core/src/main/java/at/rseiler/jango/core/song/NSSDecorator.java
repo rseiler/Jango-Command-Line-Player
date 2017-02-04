@@ -1,10 +1,9 @@
 package at.rseiler.jango.core.song;
 
-public class NextSongServiceDecorator implements NextSongService {
-
+public class NSSDecorator implements NextSongService {
     private final NextSongService nextSongService;
 
-    NextSongServiceDecorator(NextSongService nextSongService) {
+    NSSDecorator(NextSongService nextSongService) {
         this.nextSongService = nextSongService;
     }
 

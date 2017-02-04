@@ -1,0 +1,29 @@
+{
+  "id" : "5728e931-61bc-3d53-8d3d-abf96b054eac",
+  "request" : {
+    "url" : "/",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-(root)-eCxhJ.txt",
+    "headers" : {
+      "Date" : "Sat, 04 Feb 2017 20:00:56 GMT",
+      "Server" : "Apache",
+      "X-UA-Compatible" : "IE=Edge,chrome=1",
+      "ETag" : "\"0a66727bde9b91998fdb0cdfa4043a80\"",
+      "Cache-Control" : "max-age=0, private, must-revalidate",
+      "X-Request-Id" : "9e849306dbac9cc54e2a93731984fd36",
+      "X-Runtime" : "0.511370",
+      "X-Rack-Cache" : "miss",
+      "X-Powered-By" : "Phusion Passenger 4.0.60",
+      "Set-Cookie" : [ "_jango_s=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTU1MGNlNzA1NjhlYjc0MzMyZmM3MWM0ODM5NjRjNTUxBjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMVlTNE1mNGNPcWczejNYdVp2UnJaNGY4dkhSUXhyRzZLU08yWEhwM25oSDg9BjsARg%3D%3D--e2b238c2726bfef2b5331c0ff5e810fe8334f1f3; domain=.jango.com; path=/; expires=Fri, 04-Feb-2022 20:00:56 GMT; HttpOnly", "request_method=; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT" ],
+      "Status" : "200 OK",
+      "Vary" : "Accept-Encoding,User-Agent",
+      "Keep-Alive" : "timeout=5, max=5",
+      "Connection" : "Keep-Alive",
+      "Content-Type" : "text/html; charset=utf-8"
+    }
+  },
+  "uuid" : "5728e931-61bc-3d53-8d3d-abf96b054eac"
+}

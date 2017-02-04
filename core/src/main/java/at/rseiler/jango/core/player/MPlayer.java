@@ -10,7 +10,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.concurrent.CompletableFuture;
 
 public class MPlayer {
-
     private static final Logger LOGGER = LoggerFactory.getLogger(MPlayer.class);
     private Process mPlayerProcess;
     private CompletableFuture<SongData> future;

@@ -2,7 +2,7 @@ package at.rseiler.jango.core.song;
 
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
 public class SongServiceBuilder {
@@ -13,10 +13,13 @@ public class SongServiceBuilder {
         this.nextSongService = nextSongService;
     }
 
-    public SongServiceBuilder withDecorators(List<Class<? extends NextSongServiceDecorator>> decorators) {
-        Collections.reverse(decorators);
+    @SafeVarargs
+    public final SongServiceBuilder withDecorators(Class<? extends NSSDecorator>... decorators) {
+        return withDecorators(Arrays.asList(decorators));
+    }
 
-        for (Class<? extends NextSongServiceDecorator> decoratorClass : decorators) {
+    public SongServiceBuilder withDecorators(List<Class<? extends NSSDecorator>> decorators) {
+        for (Class<? extends NSSDecorator> decoratorClass : decorators) {
             try {
                 nextSongService = decoratorClass.getDeclaredConstructor(NextSongService.class).newInstance(nextSongService);
             } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {

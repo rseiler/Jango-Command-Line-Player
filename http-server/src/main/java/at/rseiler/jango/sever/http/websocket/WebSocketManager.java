@@ -1,6 +1,6 @@
 package at.rseiler.jango.sever.http.websocket;
 
-import at.rseiler.jango.core.ObjectMapperUtil;
+import at.rseiler.jango.core.util.ObjectMapperUtil;
 import at.rseiler.jango.core.command.Command;
 import at.rseiler.jango.core.command.PauseCommand;
 import at.rseiler.jango.core.command.PlayCommand;

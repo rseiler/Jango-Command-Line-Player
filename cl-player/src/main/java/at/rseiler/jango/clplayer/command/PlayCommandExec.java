@@ -1,6 +1,6 @@
 package at.rseiler.jango.clplayer.command;
 
-import at.rseiler.jango.core.SongUtil;
+import at.rseiler.jango.core.util.SongUtil;
 import at.rseiler.jango.core.command.PlayCommand;
 import at.rseiler.jango.core.song.SongData;
 import at.rseiler.jango.clplayer.player.SlavePlayer;

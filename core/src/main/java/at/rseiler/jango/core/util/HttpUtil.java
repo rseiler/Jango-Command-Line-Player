@@ -1,4 +1,4 @@
-package at.rseiler.jango.core;
+package at.rseiler.jango.core.util;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 
 public final class HttpUtil {
-
     private static final Logger LOGGER = LoggerFactory.getLogger(HttpUtil.class);
     private static final HttpClient HTTP_CLIENT = HttpClientBuilder.create().build();
 

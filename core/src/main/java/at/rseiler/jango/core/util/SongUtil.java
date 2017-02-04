@@ -1,4 +1,4 @@
-package at.rseiler.jango.core;
+package at.rseiler.jango.core.util;
 
 import at.rseiler.jango.core.song.SongData;
 

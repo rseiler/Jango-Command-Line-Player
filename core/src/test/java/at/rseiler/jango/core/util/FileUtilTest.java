@@ -12,4 +12,11 @@ public class FileUtilTest {
 
         assertThat(name, is("hello world"));
     }
+
+    @Test
+    public void sanitizeNameWithNull() throws Exception {
+        String name = FileUtil.sanitizeName(null);
+
+        assertThat(name, is(""));
+    }
 }

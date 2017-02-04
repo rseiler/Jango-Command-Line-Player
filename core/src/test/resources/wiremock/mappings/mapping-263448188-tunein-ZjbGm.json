@@ -1,0 +1,29 @@
+{
+  "id" : "be7205fa-4a09-3f26-b632-4f3847e2293b",
+  "request" : {
+    "url" : "/stations/263448188/tunein",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-263448188-tunein-ZjbGm.txt",
+    "headers" : {
+      "Date" : "Sat, 04 Feb 2017 20:41:18 GMT",
+      "Server" : "Apache",
+      "X-UA-Compatible" : "IE=Edge,chrome=1",
+      "ETag" : "\"0b0169759b54cc816f3590c2fb8b59a5\"",
+      "Cache-Control" : "max-age=0, private, must-revalidate",
+      "X-Request-Id" : "328902028ee254c89348bbd2a15bb8c2",
+      "X-Runtime" : "0.231176",
+      "X-Rack-Cache" : "miss",
+      "X-Powered-By" : "Phusion Passenger 4.0.60",
+      "Set-Cookie" : [ "_jango_s=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWZmNWU0YTk0OThlOGI4NDg4ZGM3MGQxYTFkZDdmNWZlBjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMVhHRkFXdU1RR1FwMGV3em1uZTFwNUNadlBUaGRMYUtXaEN4MllVSCtDbDA9BjsARg%3D%3D--71fdabdb100ac4954619cddb2781e0be16735bcb; domain=.jango.com; path=/; expires=Fri, 04-Feb-2022 20:41:18 GMT; HttpOnly", "request_method=; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT" ],
+      "Status" : "200 OK",
+      "Vary" : "Accept-Encoding",
+      "Keep-Alive" : "timeout=5, max=5",
+      "Connection" : "Keep-Alive",
+      "Content-Type" : "text/html; charset=utf-8"
+    }
+  },
+  "uuid" : "be7205fa-4a09-3f26-b632-4f3847e2293b"
+}

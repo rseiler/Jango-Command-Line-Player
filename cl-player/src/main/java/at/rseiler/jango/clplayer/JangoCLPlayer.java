@@ -1,6 +1,6 @@
 package at.rseiler.jango.clplayer;
 
-import at.rseiler.jango.core.station.StationServiceImpl;
+import at.rseiler.jango.core.station.StationServiceGrabber;
 import at.rseiler.jango.clplayer.player.LocalPlayer;
 import at.rseiler.jango.clplayer.player.Player;
 import at.rseiler.jango.clplayer.player.SlavePlayer;
@@ -49,7 +49,7 @@ public final class JangoCLPlayer {
     }
 
     private static void printStations() {
-        new StationServiceImpl()
+        new StationServiceGrabber("http://www.jango.com")
                 .topStations()
                 .forEach(station -> System.out.println(station.getId() + " " + station.getName()));
     }
