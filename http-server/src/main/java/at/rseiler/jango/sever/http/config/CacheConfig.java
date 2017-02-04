@@ -12,14 +12,10 @@ import java.util.concurrent.TimeUnit;
 @EnableCaching
 @Configuration
 public class CacheConfig {
-
     public static final String CACHE_NAME = "cache";
 
     @Bean
-    public Cache cache() {
-        return new GuavaCache(CACHE_NAME,
-                CacheBuilder.newBuilder()
-                        .expireAfterWrite(1, TimeUnit.HOURS)
-                        .build());
+    public Cache stationCache() {
+        return new GuavaCache(CACHE_NAME, CacheBuilder.newBuilder().expireAfterWrite(1, TimeUnit.HOURS).build());
     }
 }

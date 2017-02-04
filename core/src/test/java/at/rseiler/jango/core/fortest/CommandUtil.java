@@ -6,7 +6,7 @@ import at.rseiler.jango.core.command.PlayCommand;
 import at.rseiler.jango.core.command.StationCommand;
 import at.rseiler.jango.core.song.SongData;
 
-public class CommandUtil {
+public final class CommandUtil {
     public static final String JSON_NEXT = "{\"command\":\"next\"}";
     public static final String JSON_STATION = "{\"command\":\"station\",\"stationId\":\"123\"}";
     public static final String JSON_PAUSE = "{\"command\":\"pause\"}";
@@ -26,5 +26,8 @@ public class CommandUtil {
 
     public static StationCommand createStationCommand() {
         return new StationCommand("123");
+    }
+
+    private CommandUtil() {
     }
 }

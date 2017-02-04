@@ -12,10 +12,9 @@ import java.io.IOException;
 import java.net.Socket;
 
 public class SlavePlayer implements Player {
-
+    private final MPlayer MPlayer = new MPlayer();
     private final String host;
     private final int port;
-    private final MPlayer MPlayer = new MPlayer();
     private TcpClient tcpClient;
 
     public SlavePlayer(String host, int port) {

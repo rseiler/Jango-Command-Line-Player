@@ -32,5 +32,4 @@ public class NSSWithFileLoggingTest {
 
         assertTrue(DATETIME_ARTIST_SONG_PATTERN.matcher(FileUtils.readFileToString(file, StandardCharsets.UTF_8)).find());
     }
-
 }

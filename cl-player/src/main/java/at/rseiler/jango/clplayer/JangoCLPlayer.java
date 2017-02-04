@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public final class JangoCLPlayer {
-
     private static final int DEFAULT_PORT = 9888;
 
     public static void main(String[] args) throws IOException {

@@ -1,8 +1,8 @@
 package at.rseiler.jango.sever.http.tcp;
 
-import at.rseiler.jango.core.util.ObjectMapperUtil;
 import at.rseiler.jango.core.command.Command;
 import at.rseiler.jango.core.service.ExecuteService;
+import at.rseiler.jango.core.util.ObjectMapperUtil;
 import at.rseiler.jango.sever.http.command.mapper.CommandExecMapper;
 import at.rseiler.jango.sever.http.event.AllClientsDisconnected;
 import at.rseiler.jango.sever.http.event.ClientConnectedEvent;
@@ -31,16 +31,16 @@ public class TcpServer {
     private static final Logger LOGGER = LoggerFactory.getLogger(TcpServer.class);
     private final ExecuteService executeService = new ExecuteService(Selma.builder(CommandExecMapper.class).build());
     private final List<TcpConnectionHandler> handlers = new ArrayList<>();
-    private final ApplicationEventPublisher publisher;
-    private final SongService songService;
     private final int port;
     private final int tcpPort;
+    private final ApplicationEventPublisher publisher;
+    private final SongService songService;
 
     @Autowired
-    public TcpServer(SongService songService,
-                     ApplicationEventPublisher publisher,
-                     @Value("${server.port}") int port,
-                     @Value("${server.tcp.port}") int tcpPort) {
+    public TcpServer(@Value("${server.port}") int port,
+                     @Value("${server.tcp.port}") int tcpPort,
+                     SongService songService,
+                     ApplicationEventPublisher publisher) {
         this.songService = songService;
         this.publisher = publisher;
         this.port = port;
@@ -115,7 +115,7 @@ public class TcpServer {
         public void run() {
             while (true) {
                 try {
-                    newTcpConnection(new TcpConnectionHandler(serverSocket.accept(), port));
+                    newTcpConnection(new TcpConnectionHandler(serverSocket.accept(), port).init());
                 } catch (IOException e) {
                     LOGGER.error("Failed to create TcpConnectionHandler", e);
                 }

@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.concurrent.CancellationException;
 
 public class LocalPlayer implements Player {
-
     private static final List<Class<? extends NSSDecorator>> DECORATORS = Arrays.asList(
             NSSWithConsoleLogging.class,
             NSSWithFileLogging.class,

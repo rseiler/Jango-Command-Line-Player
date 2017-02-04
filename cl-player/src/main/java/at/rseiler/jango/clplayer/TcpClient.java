@@ -15,9 +15,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
-
 public class TcpClient extends Thread {
-
     private static final Logger LOGGER = LoggerFactory.getLogger(TcpClient.class);
     private final ExecuteService executeService = new ExecuteService(Selma.builder(CommandExecMapper.class).build());
     private final SlavePlayer slavePlayer;
