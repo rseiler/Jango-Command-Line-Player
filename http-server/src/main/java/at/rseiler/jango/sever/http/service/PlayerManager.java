@@ -34,12 +34,12 @@ public class PlayerManager {
 
     @EventListener(ClientConnectedEvent.class)
     public void onClientConnectedEvent() {
-        disable();
+//        disable();
     }
 
     @EventListener(AllClientsDisconnected.class)
     public void onAllClientsDisconnected() {
-        enable();
+//        enable();
     }
 
     public void disable() {
