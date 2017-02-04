@@ -11,7 +11,6 @@ import java.util.List;
 
 @Service("cachedStationService")
 public class CachedStationService implements StationService {
-
     private final StationService stationService;
 
     @Autowired

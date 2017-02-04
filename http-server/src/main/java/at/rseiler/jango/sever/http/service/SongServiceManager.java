@@ -17,7 +17,6 @@ import java.util.List;
 
 @Service
 public class SongServiceManager {
-
     private static final Logger LOGGER = LoggerFactory.getLogger(SongServiceManager.class);
     private static final List<Class<? extends NSSDecorator>> SONG_SERVICE_DECORATORS = Arrays.asList(
             NSSWithConsoleLogging.class,

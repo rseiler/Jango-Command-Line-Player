@@ -6,7 +6,6 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 @SuppressWarnings("PMD.SignatureDeclareThrowsException")
 class StreamWebSocketHandler extends TextWebSocketHandler {
-
     private final WebSocketManager webSocketManager;
 
     StreamWebSocketHandler(WebSocketManager webSocketManager) {

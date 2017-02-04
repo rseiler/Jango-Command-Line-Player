@@ -19,7 +19,6 @@ import java.util.regex.Pattern;
 
 @Service
 public class SongService {
-
     private static final Pattern LENGTH_PATTERN = Pattern.compile("ID_LENGTH=(\\d+.\\d+)");
     private final ApplicationEventPublisher publisher;
     private Info info = new Info(null, 0);
