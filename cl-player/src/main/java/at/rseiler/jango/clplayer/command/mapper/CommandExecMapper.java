@@ -1,12 +1,12 @@
-package jango.command.mapper;
+package at.rseiler.jango.clplayer.command.mapper;
 
 import at.rseiler.jango.core.command.PauseCommand;
 import at.rseiler.jango.core.command.PlayCommand;
 import fr.xebia.extras.selma.IgnoreMissing;
 import fr.xebia.extras.selma.Mapper;
 import fr.xebia.extras.selma.Maps;
-import jango.command.PauseCommandExec;
-import jango.command.PlayCommandExec;
+import at.rseiler.jango.clplayer.command.PauseCommandExec;
+import at.rseiler.jango.clplayer.command.PlayCommandExec;
 
 @Mapper
 public interface CommandExecMapper {

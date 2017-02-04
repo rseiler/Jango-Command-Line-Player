@@ -1,9 +1,9 @@
-package jango;
+package at.rseiler.jango.clplayer;
 
 import at.rseiler.jango.core.station.StationServiceImpl;
-import jango.player.LocalPlayer;
-import jango.player.Player;
-import jango.player.SlavePlayer;
+import at.rseiler.jango.clplayer.player.LocalPlayer;
+import at.rseiler.jango.clplayer.player.Player;
+import at.rseiler.jango.clplayer.player.SlavePlayer;
 
 import java.io.IOException;
 import java.util.Scanner;

@@ -63,6 +63,16 @@ public class TcpServer {
         onEvent(TcpConnectionHandler::sendPause);
     }
 
+    @Scheduled(fixedRate = 100)
+    public synchronized void processCommands() {
+        for (TcpConnectionHandler handler : handlers) {
+            handler.readLine().ifPresent(line -> {
+                Command command = ObjectMapperUtil.read(line, Command.class);
+                executeService.execute(command, publisher);
+            });
+        }
+    }
+
     @Scheduled(fixedRate = 10000)
     public synchronized void ping() {
         onEvent(TcpConnectionHandler::ping);
@@ -86,16 +96,6 @@ public class TcpServer {
 
         if (handlers.isEmpty()) {
             publisher.publishEvent(new AllClientsDisconnected());
-        }
-    }
-
-    @Scheduled(fixedRate = 100)
-    private synchronized void processCommands() {
-        for (TcpConnectionHandler handler : handlers) {
-            handler.readLine().ifPresent(line -> {
-                Command command = ObjectMapperUtil.read(line, Command.class);
-                executeService.execute(command, publisher);
-            });
         }
     }
 

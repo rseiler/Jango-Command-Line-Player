@@ -6,6 +6,13 @@ import at.rseiler.jango.sever.http.event.StationEvent;
 import org.springframework.context.ApplicationEventPublisher;
 
 public class StationCommandExec extends StationCommand implements CommandExec {
+    public StationCommandExec() {
+    }
+
+    public StationCommandExec(String stationId) {
+        super(stationId);
+    }
+
     @Override
     public void execute(ApplicationEventPublisher publisher) {
         publisher.publishEvent(new StationEvent(getStationId()));

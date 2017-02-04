@@ -1,4 +1,4 @@
-package jango.player;
+package at.rseiler.jango.clplayer.player;
 
 import at.rseiler.jango.core.player.MPlayer;
 import at.rseiler.jango.core.song.*;

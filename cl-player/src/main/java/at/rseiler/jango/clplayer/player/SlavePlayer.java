@@ -1,4 +1,4 @@
-package jango.player;
+package at.rseiler.jango.clplayer.player;
 
 import at.rseiler.jango.core.ObjectMapperUtil;
 import at.rseiler.jango.core.command.NextSongCommand;
@@ -6,7 +6,7 @@ import at.rseiler.jango.core.command.PauseCommand;
 import at.rseiler.jango.core.command.StationCommand;
 import at.rseiler.jango.core.player.MPlayer;
 import at.rseiler.jango.core.song.SongData;
-import jango.TcpClient;
+import at.rseiler.jango.clplayer.TcpClient;
 
 import java.io.IOException;
 import java.net.Socket;

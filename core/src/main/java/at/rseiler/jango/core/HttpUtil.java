@@ -14,7 +14,7 @@ import java.io.IOException;
 public final class HttpUtil {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(HttpUtil.class);
-    private final static HttpClient httpClient = HttpClientBuilder.create().build();
+    private static final HttpClient HTTP_CLIENT = HttpClientBuilder.create().build();
 
     /**
      * Fetches the data from the given url.
@@ -28,7 +28,7 @@ public final class HttpUtil {
         try {
             HttpGet method = new HttpGet(url);
             method.addHeader("X-Requested-With", "XMLHttpRequest");
-            HttpResponse httpResponse = httpClient.execute(method);
+            HttpResponse httpResponse = HTTP_CLIENT.execute(method);
             result = IOUtils.toString(httpResponse.getEntity().getContent(), "UTF-8").replaceAll("\\n", "");
             EntityUtils.consume(httpResponse.getEntity());
         } catch (Exception e) {
@@ -42,7 +42,7 @@ public final class HttpUtil {
      * Opens the main page to get the necessary cookies.
      */
     public static void prepareConnection(String uri) throws IOException {
-        EntityUtils.consume(httpClient.execute(new HttpGet(uri)).getEntity());
+        EntityUtils.consume(HTTP_CLIENT.execute(new HttpGet(uri)).getEntity());
     }
 
     private HttpUtil() {

@@ -11,8 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PlayerManager {
-
-    private final MPlayer MPlayer = new MPlayer();
+    private final MPlayer mPlayer = new MPlayer();
     private final SongService songService;
     private boolean enabled = true;
 
@@ -24,13 +23,13 @@ public class PlayerManager {
     @EventListener
     public void onPlayEvent(PlayEvent event) {
         if (enabled) {
-            MPlayer.play(event.getSongData());
+            mPlayer.play(event.getSongData());
         }
     }
 
     @EventListener(PauseEvent.class)
     public void onPauseEvent() {
-        MPlayer.pause();
+        mPlayer.pause();
     }
 
     @EventListener(ClientConnectedEvent.class)
@@ -45,14 +44,14 @@ public class PlayerManager {
 
     public void disable() {
         enabled = false;
-        MPlayer.stop();
+        mPlayer.stop();
     }
 
     public void enable() {
         enabled = true;
 
         if (songService.isPlaying()) {
-            MPlayer.play(songService.getSongData(), songService.getSongTime());
+            mPlayer.play(songService.getSongData(), songService.getSongTime());
         }
     }
 }

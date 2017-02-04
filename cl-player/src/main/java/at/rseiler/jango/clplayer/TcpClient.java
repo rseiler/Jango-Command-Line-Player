@@ -1,11 +1,11 @@
-package jango;
+package at.rseiler.jango.clplayer;
 
 import at.rseiler.jango.core.ObjectMapperUtil;
 import at.rseiler.jango.core.command.Command;
 import at.rseiler.jango.core.service.ExecuteService;
 import fr.xebia.extras.selma.Selma;
-import jango.command.mapper.CommandExecMapper;
-import jango.player.SlavePlayer;
+import at.rseiler.jango.clplayer.command.mapper.CommandExecMapper;
+import at.rseiler.jango.clplayer.player.SlavePlayer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

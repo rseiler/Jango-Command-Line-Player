@@ -14,6 +14,7 @@ import static com.fasterxml.jackson.annotation.JsonSubTypes.Type;
         @Type(value = StationCommand.class, name = "station")
 })
 @JsonPropertyOrder(Command.COMMAND_NAME)
+@SuppressWarnings("PMD")
 public abstract class Command {
     static final String COMMAND_NAME = "command";
 }

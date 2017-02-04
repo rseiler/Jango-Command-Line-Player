@@ -13,6 +13,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 
 class TcpConnectionHandler {
@@ -25,7 +26,7 @@ class TcpConnectionHandler {
     TcpConnectionHandler(Socket socket, int port) throws IOException {
         this.socket = socket;
         this.output = new DataOutputStream(socket.getOutputStream());
-        this.input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        this.input = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
         this.port = port;
     }
 

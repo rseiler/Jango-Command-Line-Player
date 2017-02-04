@@ -26,7 +26,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>jango.JangoCLPlayer</mainClass>
+                            <mainClass>at.rseiler.jango.clplayer.JangoCLPlayer</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

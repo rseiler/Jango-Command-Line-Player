@@ -1,4 +1,4 @@
-package jango.player;
+package at.rseiler.jango.clplayer.player;
 
 import java.io.IOException;
 

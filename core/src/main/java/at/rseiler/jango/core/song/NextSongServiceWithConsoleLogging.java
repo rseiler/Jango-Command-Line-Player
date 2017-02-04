@@ -17,7 +17,7 @@ public class NextSongServiceWithConsoleLogging extends NextSongServiceDecorator 
     @Override
     public SongData getNextSong() {
         SongData songData = getNextSongService().getNextSong();
-        String songDataInfo = SongUtil.getDateTimeArtingSong(songData);
+        String songDataInfo = SongUtil.getDateTimeArtistSong(songData);
         System.out.println(songDataInfo);
 
         try (FileOutputStream fos = new FileOutputStream("songlist.txt", true);

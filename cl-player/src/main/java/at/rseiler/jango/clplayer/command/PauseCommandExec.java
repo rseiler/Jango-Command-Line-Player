@@ -1,7 +1,7 @@
-package jango.command;
+package at.rseiler.jango.clplayer.command;
 
 import at.rseiler.jango.core.command.PauseCommand;
-import jango.player.SlavePlayer;
+import at.rseiler.jango.clplayer.player.SlavePlayer;
 
 public class PauseCommandExec extends PauseCommand implements CommandExec {
     @Override
