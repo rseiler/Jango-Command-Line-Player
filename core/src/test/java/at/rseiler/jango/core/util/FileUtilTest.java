@@ -12,5 +12,4 @@ public class FileUtilTest {
 
         assertThat(name, is("hello world"));
     }
-
 }

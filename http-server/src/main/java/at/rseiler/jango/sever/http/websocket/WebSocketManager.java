@@ -1,14 +1,14 @@
 package at.rseiler.jango.sever.http.websocket;
 
+import at.rseiler.jango.core.ObjectMapperUtil;
+import at.rseiler.jango.core.command.Command;
+import at.rseiler.jango.core.command.PauseCommand;
+import at.rseiler.jango.core.command.PlayCommand;
 import at.rseiler.jango.core.song.SongData;
-import at.rseiler.jango.sever.http.command.Command;
-import at.rseiler.jango.sever.http.command.PauseCmd;
-import at.rseiler.jango.sever.http.command.PlayCmd;
 import at.rseiler.jango.sever.http.event.PauseEvent;
 import at.rseiler.jango.sever.http.event.PlayEvent;
 import at.rseiler.jango.sever.http.service.SongService;
 import at.rseiler.jango.sever.http.util.IpUtil;
-import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,6 @@ import java.util.List;
 public class WebSocketManager {
     private static final Logger LOGGER = LoggerFactory.getLogger(WebSocketManager.class);
     private static final double MILLIS_TO_SEC = 1000.0;
-    private static final Gson GSON = new Gson();
     private final List<WebSocketSession> webSocketSessions = new ArrayList<>();
     private final SongService songService;
     private final int port;
@@ -44,7 +43,7 @@ public class WebSocketManager {
 
     @EventListener(PauseEvent.class)
     public void onPauseEvent() {
-        broadcast(new Command(new PauseCmd()));
+        broadcast(new PauseCommand());
     }
 
     void addSession(WebSocketSession webSocketSession) {
@@ -53,7 +52,7 @@ public class WebSocketManager {
         if (songService.isPlaying()) {
             try {
                 Command command = createPlaySongCmd(songService.getSongData(), songService.getSongTime() / MILLIS_TO_SEC);
-                webSocketSession.sendMessage(new TextMessage(GSON.toJson(command)));
+                webSocketSession.sendMessage(new TextMessage(ObjectMapperUtil.write(command)));
             } catch (IOException e) {
                 LOGGER.error("Failed to send play command", e);
             }
@@ -65,10 +64,10 @@ public class WebSocketManager {
     }
 
     private void broadcast(Object message) {
-        broadcast(GSON.toJson(message));
+        broadcast(ObjectMapperUtil.write(message));
     }
 
-    private void broadcast(String message) {
+    private void broadcast(byte[] message) {
         webSocketSessions.forEach(webSocketSession -> {
             try {
                 webSocketSession.sendMessage(new TextMessage(message));
@@ -80,6 +79,6 @@ public class WebSocketManager {
 
     private Command createPlaySongCmd(SongData songData, double time) {
         String url = "http://" + IpUtil.getLocalIp() + ":" + port + "/song/" + songData.getFileName();
-        return new Command(new PlayCmd(new SongData(url, songData.getArtist(), songData.getSong()), time));
+        return new PlayCommand(new SongData(url, songData.getArtist(), songData.getSong()), time);
     }
 }

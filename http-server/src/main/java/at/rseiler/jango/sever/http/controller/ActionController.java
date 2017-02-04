@@ -17,7 +17,6 @@ import java.io.IOException;
 
 @RestController
 public class ActionController {
-
     private final PlayerManager playerManager;
     private final ApplicationEventPublisher publisher;
 

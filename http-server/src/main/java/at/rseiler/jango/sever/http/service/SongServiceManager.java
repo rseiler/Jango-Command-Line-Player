@@ -45,7 +45,7 @@ public class SongServiceManager {
     @EventListener(NextSongEvent.class)
     public void handleNextSongEvent() {
         if (nextSongService != null) {
-            publisher.publishEvent(new PlayEvent(nextSongService.getNextSong()));
+            publisher.publishEvent(new PlayEvent(nextSongService.getNextSong(), 0.0));
         }
     }
 

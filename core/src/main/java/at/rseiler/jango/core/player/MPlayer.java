@@ -22,7 +22,7 @@ public class MPlayer {
     /**
      * Start to play the songs from the station.
      */
-    public CompletableFuture<SongData> play(SongData songData, long songTime) {
+    public CompletableFuture<SongData> play(SongData songData, double songTime) {
         if (future != null && isAlive()) {
             future.cancel(true);
             stop();

@@ -1,5 +1,8 @@
 package at.rseiler.jango.sever.http.tcp;
 
+import at.rseiler.jango.core.ObjectMapperUtil;
+import at.rseiler.jango.core.command.PauseCommand;
+import at.rseiler.jango.core.command.PlayCommand;
 import at.rseiler.jango.core.song.SongData;
 import at.rseiler.jango.sever.http.util.IpUtil;
 import org.slf4j.Logger;
@@ -41,7 +44,8 @@ class TcpConnectionHandler {
 
     void sendPlaySong(SongData songData, long songTime) throws RuntimeException {
         try {
-            output.writeBytes("play<>http://" + IpUtil.getLocalIp() + ":" + port + "/song/" + songData.getFileName() + "<>" + songTime + "\n");
+            output.write(ObjectMapperUtil.write(new PlayCommand(new SongData("http://" + IpUtil.getLocalIp() + ":" + port + "/song/" + songData.getFileName(), songData.getArtist(), songData.getSong()), songTime)));
+            output.writeBytes("\n");
             output.flush();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -50,7 +54,8 @@ class TcpConnectionHandler {
 
     void sendPause() throws RuntimeException {
         try {
-            output.writeBytes("pause\n");
+            output.write(ObjectMapperUtil.write(new PauseCommand()));
+            output.writeBytes("\n");
             output.flush();
         } catch (IOException e) {
             throw new RuntimeException(e);

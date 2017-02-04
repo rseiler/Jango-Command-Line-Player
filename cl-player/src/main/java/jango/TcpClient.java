@@ -1,5 +1,10 @@
 package jango;
 
+import at.rseiler.jango.core.ObjectMapperUtil;
+import at.rseiler.jango.core.command.Command;
+import at.rseiler.jango.core.service.ExecuteService;
+import fr.xebia.extras.selma.Selma;
+import jango.command.mapper.CommandExecMapper;
 import jango.player.SlavePlayer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,18 +14,20 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
-import java.util.Arrays;
 
 
 public class TcpClient extends Thread {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TcpClient.class);
+    private final ExecuteService executeService = new ExecuteService(Selma.builder(CommandExecMapper.class).build());
     private final SlavePlayer slavePlayer;
     private final Socket socket;
+    private final DataOutputStream dataOutputStream;
 
-    public TcpClient(SlavePlayer slavePlayer, Socket socket) {
+    public TcpClient(SlavePlayer slavePlayer, Socket socket) throws IOException {
         this.slavePlayer = slavePlayer;
         this.socket = socket;
+        this.dataOutputStream = new DataOutputStream(socket.getOutputStream());
     }
 
     @Override
@@ -28,19 +35,10 @@ public class TcpClient extends Thread {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
             while (true) {
                 String line = reader.readLine();
-                String[] command = line.split("<>");
 
-                switch (command[0]) {
-                    case "play":
-                        slavePlayer.play(command[1], Long.parseLong(command[2]));
-                        break;
-                    case "pause":
-                        slavePlayer.pause();
-                        break;
-                    case "ping":
-                        break;
-                    default:
-                        System.out.println("Unknown command: " + Arrays.toString(command));
+                if (!line.equals("ping")) {
+                    Command command = ObjectMapperUtil.read(line, Command.class);
+                    executeService.execute(command, slavePlayer);
                 }
             }
         } catch (IOException e) {
@@ -48,9 +46,11 @@ public class TcpClient extends Thread {
         }
     }
 
-    public void write(String command) {
+    public void write(byte[] command) {
         try {
-            new DataOutputStream(socket.getOutputStream()).writeBytes(command + "\n");
+            dataOutputStream.write(command);
+            dataOutputStream.writeBytes("\n");
+            dataOutputStream.flush();
         } catch (IOException e) {
             LOGGER.error("Failed to write command to output stream", e);
         }

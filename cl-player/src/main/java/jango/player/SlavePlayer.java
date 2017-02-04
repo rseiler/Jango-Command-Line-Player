@@ -1,5 +1,9 @@
 package jango.player;
 
+import at.rseiler.jango.core.ObjectMapperUtil;
+import at.rseiler.jango.core.command.NextSongCommand;
+import at.rseiler.jango.core.command.PauseCommand;
+import at.rseiler.jango.core.command.StationCommand;
 import at.rseiler.jango.core.player.MPlayer;
 import at.rseiler.jango.core.song.SongData;
 import jango.TcpClient;
@@ -26,17 +30,17 @@ public class SlavePlayer implements Player {
 
     @Override
     public void onPause() {
-        tcpClient.write("pause");
+        tcpClient.write(ObjectMapperUtil.write(new PauseCommand()));
     }
 
     @Override
     public void onNext() {
-        tcpClient.write("next");
+        tcpClient.write(ObjectMapperUtil.write(new NextSongCommand()));
     }
 
     @Override
     public void onStation(String stationId) {
-        tcpClient.write("station<>" + stationId);
+        tcpClient.write(ObjectMapperUtil.write(new StationCommand(stationId)));
     }
 
     @Override
@@ -44,7 +48,7 @@ public class SlavePlayer implements Player {
         MPlayer.stop();
     }
 
-    public void play(String url, long songTime) {
+    public void play(String url, double songTime) {
         MPlayer.play(new SongData(url, "", ""), songTime);
     }
 

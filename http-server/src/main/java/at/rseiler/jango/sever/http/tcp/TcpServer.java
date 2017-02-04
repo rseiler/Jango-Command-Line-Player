@@ -1,7 +1,15 @@
 package at.rseiler.jango.sever.http.tcp;
 
-import at.rseiler.jango.sever.http.event.*;
+import at.rseiler.jango.core.ObjectMapperUtil;
+import at.rseiler.jango.core.command.Command;
+import at.rseiler.jango.core.service.ExecuteService;
+import at.rseiler.jango.sever.http.command.mapper.CommandExecMapper;
+import at.rseiler.jango.sever.http.event.AllClientsDisconnected;
+import at.rseiler.jango.sever.http.event.ClientConnectedEvent;
+import at.rseiler.jango.sever.http.event.PauseEvent;
+import at.rseiler.jango.sever.http.event.PlayEvent;
 import at.rseiler.jango.sever.http.service.SongService;
+import fr.xebia.extras.selma.Selma;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +29,7 @@ import java.util.List;
 @Service
 public class TcpServer {
     private static final Logger LOGGER = LoggerFactory.getLogger(TcpServer.class);
+    private final ExecuteService executeService = new ExecuteService(Selma.builder(CommandExecMapper.class).build());
     private final List<TcpConnectionHandler> handlers = new ArrayList<>();
     private final ApplicationEventPublisher publisher;
     private final SongService songService;
@@ -84,21 +93,8 @@ public class TcpServer {
     private synchronized void processCommands() {
         for (TcpConnectionHandler handler : handlers) {
             handler.readLine().ifPresent(line -> {
-                String[] command = line.split("<>");
-
-                switch (command[0]) {
-                    case "pause":
-                        publisher.publishEvent(new PauseEvent());
-                        break;
-                    case "next":
-                        publisher.publishEvent(new NextSongEvent());
-                        break;
-                    case "station":
-                        publisher.publishEvent(new StationEvent(command[1]));
-                        publisher.publishEvent(new NextSongEvent());
-                        break;
-
-                }
+                Command command = ObjectMapperUtil.read(line, Command.class);
+                executeService.execute(command, publisher);
             });
         }
     }

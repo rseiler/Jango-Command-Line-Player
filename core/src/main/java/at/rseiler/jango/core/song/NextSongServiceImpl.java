@@ -1,13 +1,12 @@
 package at.rseiler.jango.core.song;
 
 import at.rseiler.jango.core.HttpUtil;
-import com.google.gson.Gson;
+import at.rseiler.jango.core.ObjectMapperUtil;
 
 import java.io.IOException;
 
 public class NextSongServiceImpl implements NextSongService {
 
-    private static final Gson GSON = new Gson();
     private final String stationId;
 
     public NextSongServiceImpl(String stationId) throws IOException {
@@ -18,6 +17,6 @@ public class NextSongServiceImpl implements NextSongService {
 
     @Override
     public SongData getNextSong() {
-        return GSON.fromJson(HttpUtil.grabData("http://www.jango.com/streams/info?stid=" + stationId), SongData.class);
+        return ObjectMapperUtil.read(HttpUtil.grabData("http://www.jango.com/streams/info?stid=" + stationId), SongData.class);
     }
 }
