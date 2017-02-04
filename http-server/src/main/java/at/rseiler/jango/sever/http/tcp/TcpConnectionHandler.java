@@ -39,7 +39,6 @@ class TcpConnectionHandler {
             LOGGER.warn("Failed to read from input stream");
         }
 
-
         return Optional.empty();
     }
 
