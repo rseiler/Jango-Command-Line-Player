@@ -6,13 +6,10 @@ import at.rseiler.jango.sever.http.event.StationEvent;
 import at.rseiler.jango.sever.http.service.PlayerManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.File;
 import java.io.IOException;
 
 @RestController
@@ -54,11 +51,5 @@ public class ActionController {
     @RequestMapping("/song/pause")
     public void pause() {
         publisher.publishEvent(new PauseEvent());
-    }
-
-    @ResponseBody
-    @RequestMapping("/song/{song:.+}")
-    public FileSystemResource song(@PathVariable String song) {
-        return new FileSystemResource(new File("songs/" + song));
     }
 }

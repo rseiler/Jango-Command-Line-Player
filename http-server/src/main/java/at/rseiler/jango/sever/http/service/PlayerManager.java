@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class PlayerManager {
     private final MPlayer mPlayer = new MPlayer();
     private final SongService songService;
-    private boolean enabled = true;
+    private boolean enabled;
 
     @Autowired
     public PlayerManager(SongService songService) {

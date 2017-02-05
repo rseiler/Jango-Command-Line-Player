@@ -22,11 +22,7 @@
 <script>
     var audio;
     var pause = false;
-    var outputEnabled = false;
-
-    //    audio = new Audio("http://192.168.0.12:8082/song/ls.mp3");
-    //    audio.currentTime = 10;
-    //    audio.play();
+    var outputEnabled = true;
 
     function showSong(songData) {
         document.getElementById('song-info').innerHTML = songData.artist + ' - ' + songData.song;
@@ -38,10 +34,11 @@
 
             audio = new Audio(url);
             audio.play();
+
             if (audio.fastSeek) {
-                audio.fastSeek(parseFloat(time));
+                audio.fastSeek(time);
             } else {
-                audio.currentTime = parseFloat(time);
+                audio.currentTime = time;
             }
         }
     }
@@ -66,18 +63,17 @@
         }
     }
 
-    //    var socket = {};
-    var socket = new WebSocket("ws://192.168.0.12:8082/stream");
+    var socket = new WebSocket(webSocketUrl("stream"));
     socket.onmessage = function (event) {
         var command = JSON.parse(event.data);
-        console.log(event.data);
+        console.log(command);
 
-        switch (command.id) {
-            case 'PlayCmd':
-                showSong(command.data.songData);
-                playSong(command.data.songData.url, command.data.time)
+        switch (command.command) {
+            case 'play':
+                showSong(command.songData);
+                playSong(command.songData.url, command.time)
                 break;
-            case 'PauseCmd':
+            case 'pause':
                 togglePause();
                 showPause();
                 break;
@@ -88,6 +84,11 @@
     }
     socket.onerror = function (e) {
         alert('ws error: ' + JSON.stringify(e));
+    }
+
+    function webSocketUrl(s) {
+        var l = window.location;
+        return ((l.protocol === "https:") ? "wss://" : "ws://") + l.host + l.pathname + s;
     }
 
     var toggleOutputBtn = document.getElementById('toggle-output');

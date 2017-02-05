@@ -23,7 +23,7 @@ class TcpConnectionHandler {
     private DataOutputStream output;
     private BufferedReader input;
 
-    TcpConnectionHandler(Socket socket, int port) throws IOException {
+    TcpConnectionHandler(Socket socket, int port) {
         this.socket = socket;
         this.port = port;
     }
@@ -40,13 +40,13 @@ class TcpConnectionHandler {
                 return Optional.ofNullable(input.readLine());
             }
         } catch (IOException e) {
-            LOGGER.warn("Failed to read from input stream");
+            LOGGER.warn("Failed to read from input stream", e);
         }
 
         return Optional.empty();
     }
 
-    void sendPlaySong(SongData songData, long songTime) throws RuntimeException {
+    void sendPlaySong(SongData songData, long songTime) {
         try {
             String url = "http://" + IpUtil.getLocalIp() + ":" + port + "/song/" + songData.getFileName();
             SongData remoteSongData = new SongData(url, songData.getArtist(), songData.getSong());
@@ -55,7 +55,7 @@ class TcpConnectionHandler {
             output.writeBytes("\n");
             output.flush();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Failed to send play song command", e);
         }
     }
 
@@ -65,7 +65,7 @@ class TcpConnectionHandler {
             output.writeBytes("\n");
             output.flush();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Failed to send pause song command", e);
         }
     }
 
@@ -74,7 +74,7 @@ class TcpConnectionHandler {
             output.writeBytes("ping\n");
             output.flush();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Failed to send ping", e);
         }
     }
 

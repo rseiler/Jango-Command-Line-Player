@@ -1,14 +1,13 @@
 package at.rseiler.jango.sever.http.websocket;
 
-import at.rseiler.jango.core.util.ObjectMapperUtil;
 import at.rseiler.jango.core.command.Command;
 import at.rseiler.jango.core.command.PauseCommand;
 import at.rseiler.jango.core.command.PlayCommand;
 import at.rseiler.jango.core.song.SongData;
+import at.rseiler.jango.core.util.ObjectMapperUtil;
 import at.rseiler.jango.sever.http.event.PauseEvent;
 import at.rseiler.jango.sever.http.event.PlayEvent;
 import at.rseiler.jango.sever.http.service.SongService;
-import at.rseiler.jango.sever.http.util.IpUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,7 +77,7 @@ public class WebSocketManager {
     }
 
     private Command createPlaySongCmd(SongData songData, double time) {
-        String url = "http://" + IpUtil.getLocalIp() + ":" + port + "/song/" + songData.getFileName();
+        String url = "/song/" + songData.getFileName();
         return new PlayCommand(new SongData(url, songData.getArtist(), songData.getSong()), time);
     }
 }
