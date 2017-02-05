@@ -1,6 +1,7 @@
 package at.rseiler.jango.clplayer.player;
 
 import at.rseiler.jango.core.player.MPlayer;
+import at.rseiler.jango.core.service.decorator.OpDec;
 import at.rseiler.jango.core.song.*;
 
 import java.io.IOException;
@@ -9,11 +10,10 @@ import java.util.List;
 import java.util.concurrent.CancellationException;
 
 public class LocalPlayer implements Player {
-    private static final List<Class<? extends NSSDecorator>> DECORATORS = Arrays.asList(
-            NSSWithConsoleLogging.class,
-            NSSWithFileLogging.class,
-            NSSWithStoring.class
-    );
+    private static final List<OpDec<SongData>> DECORATORS = Arrays.asList(
+            new NSSWithConsoleLogging(),
+            new NSSWithFileLogging(),
+            new NSSWithStoring());
     private final MPlayer MPlayer = new MPlayer();
     private NextSongService nextSongService;
 
@@ -43,11 +43,9 @@ public class LocalPlayer implements Player {
     }
 
     public void setStationId(String stationId) throws IOException {
-        nextSongService = new SongServiceBuilder(new NextSongServiceImpl("http://www.jango.com", stationId))
-                .withDecorators(DECORATORS)
-                .build();
+        nextSongService = new NSSWithDecorators(new NSSGrabber("http://www.jango.com", stationId), DECORATORS);
 
-        if(!MPlayer.isAlive()) {
+        if (!MPlayer.isAlive()) {
             playNextSong();
         }
     }

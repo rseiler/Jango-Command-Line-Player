@@ -1,5 +1,6 @@
 package at.rseiler.jango.sever.http.service;
 
+import at.rseiler.jango.core.service.decorator.OpDec;
 import at.rseiler.jango.core.song.*;
 import at.rseiler.jango.sever.http.event.NextSongEvent;
 import at.rseiler.jango.sever.http.event.PlayEvent;
@@ -18,10 +19,10 @@ import java.util.List;
 @Service
 public class SongServiceManager {
     private static final Logger LOGGER = LoggerFactory.getLogger(SongServiceManager.class);
-    private static final List<Class<? extends NSSDecorator>> SONG_SERVICE_DECORATORS = Arrays.asList(
-            NSSWithConsoleLogging.class,
-            NSSWithFileLogging.class,
-            NSSWithStoring.class
+    private static final List<OpDec<SongData>> DECORATORS = Arrays.asList(
+            new NSSWithConsoleLogging(),
+            new NSSWithFileLogging(),
+            new NSSWithStoring()
     );
     private final ApplicationEventPublisher publisher;
     private NextSongService nextSongService;
@@ -34,9 +35,7 @@ public class SongServiceManager {
     @EventListener(StationEvent.class)
     public void handleStationEvent(StationEvent stationEvent) {
         try {
-            nextSongService = new SongServiceBuilder(new NextSongServiceImpl("http://www.jango.com", stationEvent.getStationId()))
-                    .withDecorators(SONG_SERVICE_DECORATORS)
-                    .build();
+            nextSongService = new NSSWithDecorators(new NSSGrabber("http://www.jango.com", stationEvent.getStationId()), DECORATORS);
         } catch (IOException e) {
             LOGGER.error("Failed to create NextSongService", e);
         }

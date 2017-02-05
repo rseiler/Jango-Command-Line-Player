@@ -10,7 +10,7 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-public class NextSongServiceImplTest {
+public class NSSGrabberTest {
     @ClassRule
     public static WireMockClassRule WIRE_MOCK_RULE = new WireMockClassRule(WireMockConfiguration.options().dynamicPort().usingFilesUnderClasspath("wiremock"));
 
@@ -26,7 +26,7 @@ public class NextSongServiceImplTest {
 
     @Test
     public void getNextSong() throws Exception {
-        NextSongServiceImpl nextSongService = new NextSongServiceImpl("http://localhost:" + port, "263448188");
+        NSSGrabber nextSongService = new NSSGrabber("http://localhost:" + port, "263448188");
 
         assertThat(nextSongService.getNextSong(), is(new SongData("http://cd09.64.aac.jango.com/89/45/98/894598439861363240.m4a", null, null)));
     }

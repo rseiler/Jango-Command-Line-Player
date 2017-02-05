@@ -1,5 +1,6 @@
 package at.rseiler.jango.core.song;
 
+import at.rseiler.jango.core.fortest.SongDataUtil;
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
@@ -28,7 +29,7 @@ public class NSSWithFileLoggingTest {
 
     @Test
     public void getNextSong() throws Exception {
-        new NSSWithFileLogging(new ForTestNextSongService()).getNextSong();
+        new NSSWithFileLogging().exec(SongDataUtil.createSongData());
 
         assertTrue(DATETIME_ARTIST_SONG_PATTERN.matcher(FileUtils.readFileToString(file, StandardCharsets.UTF_8)).find());
     }

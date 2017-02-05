@@ -1,5 +1,6 @@
 package at.rseiler.jango.core.song;
 
+import at.rseiler.jango.core.fortest.SongDataUtil;
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import com.github.tomakehurst.wiremock.junit.WireMockClassRule;
 import org.apache.commons.io.FileUtils;
@@ -35,7 +36,7 @@ public class NSSWithStoringTest {
 
     @Test
     public void getNextSong() throws Exception {
-        new NSSWithStoring(new ForTestNextSongService(port)).getNextSong();
+        new NSSWithStoring().exec(SongDataUtil.createSongData(port));
 
         assertThat(FileUtils.readFileToString(file, StandardCharsets.UTF_8), is("song.m4p"));
     }

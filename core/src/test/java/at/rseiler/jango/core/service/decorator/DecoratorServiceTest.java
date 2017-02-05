@@ -10,8 +10,8 @@ public class DecoratorServiceTest {
     @Test
     public void testDecoratorService() throws Exception {
         DecoratorService<String, Op<String>, OpDec<String>> decoratorService = new DecoratorService<>(new Init());
-        decoratorService.addDecorator(new A());
-        decoratorService.addDecorator(new B());
+        decoratorService.add(new A());
+        decoratorService.add(new B());
 
         assertThat(decoratorService.exec(), is("init/A/B"));
     }

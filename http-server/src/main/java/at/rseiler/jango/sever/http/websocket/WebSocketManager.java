@@ -11,7 +11,6 @@ import at.rseiler.jango.sever.http.service.SongService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 import org.springframework.web.socket.TextMessage;
@@ -27,12 +26,10 @@ public class WebSocketManager {
     private static final double MILLIS_TO_SEC = 1000.0;
     private final List<WebSocketSession> webSocketSessions = new ArrayList<>();
     private final SongService songService;
-    private final int port;
 
     @Autowired
-    public WebSocketManager(SongService songService, @Value("${server.port}") int port) {
+    public WebSocketManager(SongService songService) {
         this.songService = songService;
-        this.port = port;
     }
 
     @EventListener

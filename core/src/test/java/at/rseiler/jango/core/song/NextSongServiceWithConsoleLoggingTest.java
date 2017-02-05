@@ -1,5 +1,6 @@
 package at.rseiler.jango.core.song;
 
+import at.rseiler.jango.core.fortest.SongDataUtil;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.SystemOutRule;
@@ -16,7 +17,7 @@ public class NextSongServiceWithConsoleLoggingTest {
 
     @Test
     public void getNextSong() throws Exception {
-        new NSSWithConsoleLogging(new ForTestNextSongService()).getNextSong();
+        new NSSWithConsoleLogging().exec(SongDataUtil.createSongData());
 
         assertTrue(DATETIME_ARTIST_SONG_PATTERN.matcher(systemOutRule.getLog()).find());
     }
