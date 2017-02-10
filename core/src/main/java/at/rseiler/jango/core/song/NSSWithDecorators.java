@@ -7,8 +7,8 @@ import java.util.List;
 
 public class NSSWithDecorators extends DecoratorService<SongData, NSSGrabber, OpDec<SongData>> implements NextSongService {
 
-    public NSSWithDecorators(NSSGrabber init, List<OpDec<SongData>> decorators) {
-        super(init);
+    public NSSWithDecorators(NSSGrabber nssGrabber, List<OpDec<SongData>> decorators) {
+        super(nssGrabber);
         add(decorators);
     }
 
