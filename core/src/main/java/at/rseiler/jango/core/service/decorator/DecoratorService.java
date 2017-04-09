@@ -11,7 +11,7 @@ public class DecoratorService<T, R extends Op<T>, S extends OpDec<T>> {
         this.service = service;
     }
 
-    protected DecoratorService<T, R, S> add(S dec) {
+    DecoratorService<T, R, S> add(S dec) {
         decorators.add(dec);
         return this;
     }
