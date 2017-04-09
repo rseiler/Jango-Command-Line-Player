@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <artifactId>parent</artifactId>
-        <groupId>at.rseiler.jango</groupId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+<parent>
+    <artifactId>parent</artifactId>
+    <groupId>at.rseiler.jango</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+</parent>
 
-    <artifactId>core</artifactId>
-    <name>Jango Core</name>
+<artifactId>core</artifactId>
+<name>Jango Core</name>
 
-    <properties>
-        <main.basedir>${project.parent.basedir}</main.basedir>
-        <skipCodeAnalysis>false</skipCodeAnalysis>
-    </properties>
+<properties>
+    <main.basedir>${project.parent.basedir}</main.basedir>
+    <skipCodeAnalysis>false</skipCodeAnalysis>
+</properties>
 </project>

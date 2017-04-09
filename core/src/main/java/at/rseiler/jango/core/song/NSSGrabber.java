@@ -24,6 +24,7 @@ public class NSSGrabber implements NextSongService, Op<SongData> {
 
     @Override
     public SongData getNextSong() {
-        return ObjectMapperUtil.read(HttpUtil.grabData(url + "/streams/info?stid=" + stationId), SongData.class);
+        SongData songData = ObjectMapperUtil.read(HttpUtil.grabData(url + "/streams/info?stid=" + stationId), SongData.class);
+        return new SongData("http:" + songData.getUrl(), songData.getArtist(), songData.getSong());
     }
 }
